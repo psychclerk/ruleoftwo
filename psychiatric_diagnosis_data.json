@@ -1,0 +1,3132 @@
+{
+  "meta": {
+    "title": "Comprehensive Psychiatric Diagnostic Reference",
+    "version": "1.0",
+    "description": "A comprehensive guide to organic, neuropsychiatric, and systemic causes of psychiatric presentations using the Rule of Two",
+    "source": ["Comprehensive Textbook of Psychiatry", "Kaplan & Sadock's Synopsis of Psychiatry", "Bradley's Neurology in Clinical Practice"]
+  },
+  "categories": [
+    {
+      "id": "neurodegenerative",
+      "name": "Neurodegenerative Disorders",
+      "icon": "brain",
+      "conditions": [
+        {
+          "id": "alzheimers_early",
+          "name": "Alzheimer's Disease (Early Onset)",
+          "symptoms": [
+            "Progressive episodic memory impairment",
+            "Difficulty with complex tasks"
+          ],
+          "signs": [
+            "Impaired delayed recall",
+            "Reduced hippocampal volume on neuroimaging"
+          ],
+          "investigations": [
+            "MRI brain (hippocampal atrophy)",
+            "CSF biomarkers (decreased Aβ42, increased phosphorylated tau)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "alzheimers_late",
+          "name": "Alzheimer's Disease (Late Onset)",
+          "symptoms": [
+            "Gradual memory decline",
+            "Disorientation in time and place"
+          ],
+          "signs": [
+            "Difficulty with clock drawing",
+            "Impaired confrontation naming"
+          ],
+          "investigations": [
+            "3T MRI brain",
+            "Neuropsychological battery"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "vascular_dementia",
+          "name": "Vascular Dementia",
+          "symptoms": [
+            "Stepwise deterioration",
+            "Fluctuating cognition"
+          ],
+          "signs": [
+            "Focal neurological deficits",
+            "Pseudobulbar affect"
+          ],
+          "investigations": [
+            "MRI brain (multiple territorial infarcts)",
+            "CT angiogram"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "lewy_body",
+          "name": "Lewy Body Dementia",
+          "symptoms": [
+            "Fluctuating cognition",
+            "Recurrent visual hallucinations"
+          ],
+          "signs": [
+            "Parkinsonism (rigidity, bradykinesia)",
+            "REM sleep behavior disorder"
+          ],
+          "investigations": [
+            "DAT scan (reduced striatal dopamine transporter)",
+            "Sleep study"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "frontotemporal_bv",
+          "name": "Frontotemporal Dementia (Behavioral Variant)",
+          "symptoms": [
+            "Behavioral disinhibition",
+            "Loss of empathy"
+          ],
+          "signs": [
+            "Utilitarian choices",
+            "Lack of insight"
+          ],
+          "investigations": [
+            "MRI brain (frontal and/or anterior temporal atrophy)",
+            "Neuropsychological assessment"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ppa_nonfluent",
+          "name": "Primary Progressive Aphasia (Nonfluent Variant)",
+          "symptoms": [
+            "Effortful speech",
+            "Agrammatism"
+          ],
+          "signs": [
+            "Speech apraxia",
+            "Grammar errors"
+          ],
+          "investigations": [
+            "MRI brain (left posterior frontal and insular atrophy)",
+            "Speech evaluation"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ppa_semantic",
+          "name": "Primary Progressive Aphasia (Semantic Variant)",
+          "symptoms": [
+            "Loss of word meaning",
+            "Surface dyslexia"
+          ],
+          "signs": [
+            "Preserved grammar",
+            "Intact repetition"
+          ],
+          "investigations": [
+            "MRI brain (anterior temporal lobe atrophy)",
+            "Semantic memory testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "huntingtons",
+          "name": "Huntington's Disease",
+          "symptoms": [
+            "Irritability",
+            "Executive dysfunction"
+          ],
+          "signs": [
+            "Chorea",
+            "Saccadic eye movement abnormalities"
+          ],
+          "investigations": [
+            "Genetic testing (HTT gene CAG repeat expansion ≥36)",
+            "MRI brain"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "psp",
+          "name": "Progressive Supranuclear Palsy",
+          "symptoms": [
+            "Early falls",
+            "Vertical gaze palsy"
+          ],
+          "signs": [
+            "Axial rigidity",
+            "Neck extension"
+          ],
+          "investigations": [
+            "MRI brain (midbrain atrophy, hummingbird sign)",
+            "Clinical criteria"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "cbd",
+          "name": "Corticobasal Syndrome",
+          "symptoms": [
+            "Alien limb phenomenon",
+            "Asymmetric rigidity"
+          ],
+          "signs": [
+            "Apraxia",
+            "Cortical sensory loss"
+          ],
+          "investigations": [
+            "MRI brain (asymmetric cortical atrophy)",
+            "FDG-PET"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "msa_p",
+          "name": "Multiple System Atrophy (Parkinsonian Type)",
+          "symptoms": [
+            "Autonomic failure",
+            "Parkinsonism"
+          ],
+          "signs": [
+            "Orthostatic hypotension",
+            "Poor levodopa response"
+          ],
+          "investigations": [
+            "MRI brain (putaminal atrophy, hot cross bun sign)",
+            "Autonomic testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "msa_c",
+          "name": "Multiple System Atrophy (Cerebellar Type)",
+          "symptoms": [
+            "Autonomic failure",
+            "Cerebellar ataxia"
+          ],
+          "signs": [
+            "Gait ataxia",
+            "Scanning speech"
+          ],
+          "investigations": [
+            "MRI brain (cerebellar and brainstem atrophy)",
+            "Autonomic function testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "cjd_sporadic",
+          "name": "Creutzfeldt-Jakob Disease (Sporadic)",
+          "symptoms": [
+            "Rapidly progressive dementia",
+            "Myoclonus"
+          ],
+          "signs": [
+            "Startle myoclonus",
+            "Cerebellar signs"
+          ],
+          "investigations": [
+            "MRI brain (DWI/FLAIR cortical and basal ganglia hyperintensities)",
+            "CSF 14-3-3 protein"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "cjd_variant",
+          "name": "Creutzfeldt-Jakob Disease (Variant)",
+          "symptoms": [
+            "Psychiatric symptoms",
+            "Sensory disturbances"
+          ],
+          "signs": [
+            "Ataxia",
+            "Dysarthria"
+          ],
+          "investigations": [
+            "MRI brain (pulvinar sign)",
+            "Tonsillar biopsy for PrPsc"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ffi",
+          "name": "Fatal Familial Insomnia",
+          "symptoms": [
+            "Progressive insomnia",
+            "Autonomic dysfunction"
+          ],
+          "signs": [
+            "Hormonal abnormalities",
+            "Motor abnormalities"
+          ],
+          "investigations": [
+            "Polysomnography",
+            "Genetic testing (PRNP D178N mutation)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "wilsons",
+          "name": "Wilson's Disease",
+          "symptoms": [
+            "Psychiatric symptoms",
+            "Movement disorders"
+          ],
+          "signs": [
+            "Kayser-Fleischer rings",
+            "Hepatic dysfunction"
+          ],
+          "investigations": [
+            "Serum ceruloplasmin",
+            "24-hour urinary copper, genetic testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "nph",
+          "name": "Normal Pressure Hydrocephalus",
+          "symptoms": [
+            "Gait disturbance",
+            "Urinary incontinence"
+          ],
+          "signs": [
+            "Magnetic gait",
+            "Frontal release signs"
+          ],
+          "investigations": [
+            "MRI brain (ventriculomegaly)",
+            "Lumbar puncture with opening pressure"
+          ],
+          "specialty": "Neurology"
+        }
+      ]
+    },
+    {
+      "id": "cerebrovascular",
+      "name": "Cerebrovascular Conditions",
+      "icon": "heart-pulse",
+      "conditions": [
+        {
+          "id": "ischemic_stroke",
+          "name": "Acute Ischemic Stroke",
+          "symptoms": [
+            "Acute focal neurological deficit",
+            "Headache"
+          ],
+          "signs": [
+            "Positive NIHSS findings",
+            "Altered level of consciousness"
+          ],
+          "investigations": [
+            "Non-contrast CT brain (rule out hemorrhage)",
+            "MRI DWI sequence"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "tia",
+          "name": "Transient Ischemic Attack",
+          "symptoms": [
+            "Transient focal neurological symptoms",
+            "Amaurosis fugax"
+          ],
+          "signs": [
+            "Resolved deficits on exam",
+            "Carotid bruit"
+          ],
+          "investigations": [
+            "Diffusion-weighted MRI",
+            "CT/MR angiography"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "cerebral_venous_thrombosis",
+          "name": "Cerebral Venous Sinus Thrombosis",
+          "symptoms": [
+            "Headache",
+            "Seizures"
+          ],
+          "signs": [
+            "Papilledema",
+            "Focal neurological signs"
+          ],
+          "investigations": [
+            "MR venography",
+            "D-dimer, coagulation profile"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "sah",
+          "name": "Subarachnoid Hemorrhage",
+          "symptoms": [
+            "Worst headache of life",
+            "Meningismus"
+          ],
+          "signs": [
+            "Neck stiffness",
+            "Third nerve palsy"
+          ],
+          "investigations": [
+            "Non-contrast CT brain (within 6 hours)",
+            "Lumbar puncture (xanthochromia)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ich",
+          "name": "Intracerebral Hemorrhage",
+          "symptoms": [
+            "Sudden headache",
+            "Vomiting"
+          ],
+          "signs": [
+            "Focal neurological deficits",
+            "Decreased consciousness"
+          ],
+          "investigations": [
+            "Non-contrast CT brain",
+            "Coagulation profile"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "chronic_sdh",
+          "name": "Chronic Subdural Hematoma",
+          "symptoms": [
+            "Gradual cognitive decline",
+            "Gait disturbance"
+          ],
+          "signs": [
+            "Headache",
+            "Focal weakness"
+          ],
+          "investigations": [
+            "CT brain (crescent-shaped collection)",
+            "MRI brain"
+          ],
+          "specialty": "Neurosurgery"
+        },
+        {
+          "id": "hypertensive_encephalopathy",
+          "name": "Hypertensive Encephalopathy",
+          "symptoms": [
+            "Headache",
+            "Confusion"
+          ],
+          "signs": [
+            "Elevated blood pressure",
+            "Retinal changes"
+          ],
+          "investigations": [
+            "MRI brain (PRES pattern)",
+            "Renal function"
+          ],
+          "specialty": "Internal Medicine"
+        },
+        {
+          "id": "cadasil",
+          "name": "CADASIL",
+          "symptoms": [
+            "Migraine with aura",
+            "Mood disorders"
+          ],
+          "signs": [
+            "Stroke-like episodes",
+            "Cognitive decline"
+          ],
+          "investigations": [
+            "MRI brain (temporal pole white matter changes)",
+            "NOTCH3 genetic testing"
+          ],
+          "specialty": "Neurology"
+        }
+      ]
+    },
+    {
+      "id": "metabolic_endocrine",
+      "name": "Metabolic and Endocrine Disorders",
+      "icon": "activity",
+      "conditions": [
+        {
+          "id": "hypothyroidism",
+          "name": "Hypothyroidism",
+          "symptoms": [
+            "Fatigue",
+            "Depression"
+          ],
+          "signs": [
+            "Bradycardia",
+            "Delayed deep tendon reflexes"
+          ],
+          "investigations": [
+            "TSH",
+            "Free T4"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "hyperthyroidism",
+          "name": "Hyperthyroidism",
+          "symptoms": [
+            "Anxiety",
+            "Weight loss"
+          ],
+          "signs": [
+            "Tachycardia",
+            "Tremor, goiter"
+          ],
+          "investigations": [
+            "TSH",
+            "Free T3 and T4"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "cushings",
+          "name": "Cushing's Syndrome",
+          "symptoms": [
+            "Mood changes",
+            "Weight gain"
+          ],
+          "signs": [
+            "Moon facies",
+            "Striae"
+          ],
+          "investigations": [
+            "24-hour urinary free cortisol",
+            "Dexamethasone suppression test"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "addisons",
+          "name": "Addison's Disease",
+          "symptoms": [
+            "Fatigue",
+            "Hyperpigmentation"
+          ],
+          "signs": [
+            "Hypotension",
+            "Hyperkalemia"
+          ],
+          "investigations": [
+            "Morning cortisol",
+            "ACTH stimulation test"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "primary_hyperparathyroidism",
+          "name": "Primary Hyperparathyroidism",
+          "symptoms": [
+            "Fatigue",
+            "Depression"
+          ],
+          "signs": [
+            "Bone pain",
+            "Nephrolithiasis"
+          ],
+          "investigations": [
+            "Serum calcium",
+            "PTH level"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "hypoparathyroidism",
+          "name": "Hypoparathyroidism",
+          "symptoms": [
+            "Anxiety",
+            "Paresthesias"
+          ],
+          "signs": [
+            "Chvostek sign",
+            "Trousseau sign"
+          ],
+          "investigations": [
+            "Serum calcium",
+            "Phosphate, PTH"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "hypoglycemia",
+          "name": "Hypoglycemia",
+          "symptoms": [
+            "Confusion",
+            "Diaphoresis"
+          ],
+          "signs": [
+            "Tachycardia",
+            "Sweating"
+          ],
+          "investigations": [
+            "Serum glucose (during episode)",
+            "Insulin/C-peptide"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "dka",
+          "name": "Diabetic Ketoacidosis",
+          "symptoms": [
+            "Altered mental status",
+            "Polyuria"
+          ],
+          "signs": [
+            "Dehydration",
+            "Kussmaul respirations"
+          ],
+          "investigations": [
+            "Serum glucose",
+            "Arterial blood gas, serum ketones"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "uremic_encephalopathy",
+          "name": "Uremic Encephalopathy",
+          "symptoms": [
+            "Altered mental status",
+            "Asterixis"
+          ],
+          "signs": [
+            "Tremor",
+            "Pericardial rub"
+          ],
+          "investigations": [
+            "Serum urea",
+            "Creatinine, eGFR"
+          ],
+          "specialty": "Nephrology"
+        },
+        {
+          "id": "hepatic_encephalopathy",
+          "name": "Hepatic Encephalopathy",
+          "symptoms": [
+            "Confusion",
+            "Altered consciousness"
+          ],
+          "signs": [
+            "Asterixis",
+            "Jaundice"
+          ],
+          "investigations": [
+            "Serum ammonia",
+            "Liver function tests"
+          ],
+          "specialty": "Hepatology"
+        },
+        {
+          "id": "wilson_disease",
+          "name": "Wilson's Disease",
+          "symptoms": [
+            "Psychiatric symptoms",
+            "Movement disorders"
+          ],
+          "signs": [
+            "Kayser-Fleischer rings",
+            "Hepatic dysfunction"
+          ],
+          "investigations": [
+            "Serum ceruloplasmin",
+            "24-hour urinary copper, genetic testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "hemochromatosis",
+          "name": "Hemochromatosis",
+          "symptoms": [
+            "Fatigue",
+            "Arthropathy"
+          ],
+          "signs": [
+            "Bronze skin pigmentation",
+            "Hepatomegaly"
+          ],
+          "investigations": [
+            "Serum ferritin",
+            "Transferrin saturation, genetic testing"
+          ],
+          "specialty": "Hematology"
+        },
+        {
+          "id": "acute_intermittent_porphyria",
+          "name": "Acute Intermittent Porphyria",
+          "symptoms": [
+            "Abdominal pain",
+            "Psychiatric symptoms"
+          ],
+          "signs": [
+            "Peripheral neuropathy",
+            "Photosensitivity"
+          ],
+          "investigations": [
+            "Urine porphobilinogen",
+            "Urine porphyrins"
+          ],
+          "specialty": "Hematology"
+        },
+        {
+          "id": "vitamin_b12_deficiency",
+          "name": "Vitamin B12 Deficiency",
+          "symptoms": [
+            "Memory impairment",
+            "Paresthesias"
+          ],
+          "signs": [
+            "Macrocytic anemia",
+            "Posterior column signs"
+          ],
+          "investigations": [
+            "Serum B12",
+            "Methylmalonic acid, homocysteine"
+          ],
+          "specialty": "Hematology"
+        },
+        {
+          "id": "thiamine_deficiency",
+          "name": "Thiamine Deficiency (Wernicke)",
+          "symptoms": [
+            "Confusion",
+            "Ataxia"
+          ],
+          "signs": [
+            "Ophthalmoplegia",
+            "Nystagmus"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Response to thiamine"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "niacin_deficiency",
+          "name": "Niacin Deficiency (Pellagra)",
+          "symptoms": [
+            "Dementia",
+            "Dermatitis"
+          ],
+          "signs": [
+            "Diarrhea",
+            "4D's (Dementia, Dermatitis, Diarrhea, Death)"
+          ],
+          "investigations": [
+            "Urinary N-methylnicotinamide",
+            "Clinical diagnosis"
+          ],
+          "specialty": "Internal Medicine"
+        }
+      ]
+    },
+    {
+      "id": "infectious",
+      "name": "Infectious Causes",
+      "icon": "virus",
+      "conditions": [
+        {
+          "id": "hiv_encephalopathy",
+          "name": "HIV Encephalopathy",
+          "symptoms": [
+            "Cognitive slowing",
+            "Behavioral changes"
+          ],
+          "signs": [
+            "Motor deficits",
+            "Hyperreflexia"
+          ],
+          "investigations": [
+            "HIV test",
+            "MRI brain (diffuse white matter changes)"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "neurosyphilis",
+          "name": "Neurosyphilis",
+          "symptoms": [
+            "Psychiatric changes",
+            "Tabes dorsalis"
+          ],
+          "signs": [
+            "Argyll Robertson pupils",
+            "Romberg sign"
+          ],
+          "investigations": [
+            "VDRL/RPR",
+            "FTA-ABS"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "hsv_encephalitis",
+          "name": "Herpes Simplex Encephalitis",
+          "symptoms": [
+            "Fever",
+            "Personality changes"
+          ],
+          "signs": [
+            "Seizures",
+            "Focal neurological signs"
+          ],
+          "investigations": [
+            "CSF PCR for HSV",
+            "MRI brain (temporal lobe abnormalities)"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "tb_meningitis",
+          "name": "Tuberculous Meningitis",
+          "symptoms": [
+            "Headache",
+            "Fever"
+          ],
+          "signs": [
+            "Cranial nerve palsies",
+            "Meningismus"
+          ],
+          "investigations": [
+            "CSF ADA",
+            "CSF PCR for TB, MRI brain"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "cryptococcal_meningitis",
+          "name": "Cryptococcal Meningitis",
+          "symptoms": [
+            "Headache",
+            "Altered mental status"
+          ],
+          "signs": [
+            "Fever",
+            "Visual changes"
+          ],
+          "investigations": [
+            "CSF cryptococcal antigen",
+            "India ink staining"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "neuroborreliosis",
+          "name": "Neuroborreliosis (Lyme)",
+          "symptoms": [
+            "Fatigue",
+            "Cognitive difficulties"
+          ],
+          "signs": [
+            "Cranial neuropathy (facial palsy)",
+            "Radiculopathy"
+          ],
+          "investigations": [
+            "CSF Borrelia antibodies",
+            "Serum Lyme antibodies"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "toxoplasmosis",
+          "name": "Toxoplasmosis",
+          "symptoms": [
+            "Headaches",
+            "Focal deficits"
+          ],
+          "signs": [
+            "Immunocompromised state",
+            "Seizures"
+          ],
+          "investigations": [
+            "MRI brain (multiple ring-enhancing lesions)",
+            "Toxoplasma IgG"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "pml",
+          "name": "Progressive Multifocal Leukoencephalopathy",
+          "symptoms": [
+            "Progressive neurological deficits",
+            "Vision changes"
+          ],
+          "signs": [
+            "Immunocompromised state",
+            "No fever"
+          ],
+          "investigations": [
+            "CSF JC virus PCR",
+            "MRI brain (non-enhancing white matter lesions)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "cerebral_malaria",
+          "name": "Cerebral Malaria",
+          "symptoms": [
+            "Fever",
+            "Altered consciousness"
+          ],
+          "signs": [
+            "Splenomegaly",
+            "Anemia"
+          ],
+          "investigations": [
+            "Peripheral blood smear",
+            "Rapid diagnostic test"
+          ],
+          "specialty": "Infectious Disease"
+        },
+        {
+          "id": "neurocysticercosis",
+          "name": "Neurocysticercosis",
+          "symptoms": [
+            "Seizures",
+            "Headache"
+          ],
+          "signs": [
+            "Focal neurological signs",
+            "Increased intracranial pressure"
+          ],
+          "investigations": [
+            "MRI brain (cystic lesions)",
+            "Serology (EITB)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "whipples",
+          "name": "Whipple's Disease",
+          "symptoms": [
+            "Cognitive changes",
+            "Sleep disturbances"
+          ],
+          "signs": [
+            "Oculomasticatory myorhythmia",
+            "Arthralgia"
+          ],
+          "investigations": [
+            "Duodenal biopsy",
+            "PCR for Tropheryma whipplei"
+          ],
+          "specialty": "Gastroenterology"
+        },
+        {
+          "id": "sspe",
+          "name": "Subacute Sclerosing Panencephalitis",
+          "symptoms": [
+            "Behavioral changes",
+            "Myoclonus"
+          ],
+          "signs": [
+            "Progressive dementia",
+            "Visual disturbances"
+          ],
+          "investigations": [
+            "Measles antibody in serum/CSF",
+            "MRI brain"
+          ],
+          "specialty": "Neurology"
+        }
+      ]
+    },
+    {
+      "id": "autoimmune",
+      "name": "Autoimmune and Inflammatory Conditions",
+      "icon": "shield",
+      "conditions": [
+        {
+          "id": "multiple_sclerosis",
+          "name": "Multiple Sclerosis",
+          "symptoms": [
+            "Depression",
+            "Cognitive changes"
+          ],
+          "signs": [
+            "Optic neuritis",
+            "Lhermitte's sign"
+          ],
+          "investigations": [
+            "MRI brain and spine (demyelinating lesions)",
+            "CSF oligoclonal bands"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "nmdar_encephalitis",
+          "name": "Anti-NMDA Receptor Encephalitis",
+          "symptoms": [
+            "Psychiatric symptoms",
+            "Memory loss"
+          ],
+          "signs": [
+            "Seizures",
+            "Movement disorders"
+          ],
+          "investigations": [
+            "Anti-NMDA receptor antibodies (CSF and serum)",
+            "EEG"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "lgi1_encephalitis",
+          "name": "Anti-LGI1 Encephalitis",
+          "symptoms": [
+            "Memory loss",
+            "Faciobrachial dystonic seizures"
+          ],
+          "signs": [
+            "Hyponatremia",
+            "Sleep disturbance"
+          ],
+          "investigations": [
+            "Anti-LGI1 antibodies",
+            "EEG"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "sle",
+          "name": "Systemic Lupus Erythematosus",
+          "symptoms": [
+            "Mood disorder",
+            "Cognitive dysfunction"
+          ],
+          "signs": [
+            "Malar rash",
+            "Arthritis"
+          ],
+          "investigations": [
+            "ANA",
+            "Anti-dsDNA antibodies"
+          ],
+          "specialty": "Rheumatology"
+        },
+        {
+          "id": "antiphospholipid",
+          "name": "Antiphospholipid Syndrome",
+          "symptoms": [
+            "Cognitive impairment",
+            "Mood changes"
+          ],
+          "signs": [
+            "Thrombosis",
+            "Livedo reticularis"
+          ],
+          "investigations": [
+            "Anti-cardiolipin antibodies",
+            "Lupus anticoagulant"
+          ],
+          "specialty": "Rheumatology"
+        },
+        {
+          "id": "behcets",
+          "name": "Behçet's Disease",
+          "symptoms": [
+            "Oral ulcers",
+            "Neurological symptoms"
+          ],
+          "signs": [
+            "Genital ulcers",
+            "Uveitis"
+          ],
+          "investigations": [
+            "Pathergy test",
+            "HLA-B51"
+          ],
+          "specialty": "Rheumatology"
+        },
+        {
+          "id": "neurosarcoidosis",
+          "name": "Neurosarcoidosis",
+          "symptoms": [
+            "Fatigue",
+            "Personality changes"
+          ],
+          "signs": [
+            "Cranial neuropathies",
+            "Erythema nodosum"
+          ],
+          "investigations": [
+            "Serum ACE",
+            "Biopsy (non-caseating granulomas)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "hashimotos_encephalopathy",
+          "name": "Hashimoto's Encephalopathy",
+          "symptoms": [
+            "Cognitive decline",
+            "Seizures"
+          ],
+          "signs": [
+            "Elevated thyroid antibodies",
+            "Myoclonus"
+          ],
+          "investigations": [
+            "Anti-TPO antibodies",
+            "EEG (generalized slowing)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "celiac_disease",
+          "name": "Celiac Disease",
+          "symptoms": [
+            "Irritability",
+            "Cognitive fog"
+          ],
+          "signs": [
+            "Diarrhea",
+            "Weight loss"
+          ],
+          "investigations": [
+            "Anti-tissue transglutaminase antibodies",
+            "Duodenal biopsy"
+          ],
+          "specialty": "Gastroenterology"
+        },
+        {
+          "id": "celiac_neuro",
+          "name": "Celiac-Associated Neurological Disease",
+          "symptoms": [
+            "Ataxia",
+            "Peripheral neuropathy"
+          ],
+          "signs": [
+            "Gait disturbance",
+            "Sensory loss"
+          ],
+          "investigations": [
+            "Anti-gliadin antibodies",
+            "Anti-transglutaminase 6 antibodies"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "paraneoplastic_lem",
+          "name": "Paraneoplastic Limbic Encephalitis",
+          "symptoms": [
+            "Memory loss",
+            "Psychiatric symptoms"
+          ],
+          "signs": [
+            "Seizures",
+            "Hypoventilation"
+          ],
+          "investigations": [
+            "Anti-neuronal antibodies",
+            "PET-CT for malignancy"
+          ],
+          "specialty": "Oncology"
+        },
+        {
+          "id": "gca",
+          "name": "Giant Cell Arteritis",
+          "symptoms": [
+            "New headache",
+            "Jaw claudication"
+          ],
+          "signs": [
+            "Temporal artery tenderness",
+            "Vision loss"
+          ],
+          "investigations": [
+            "ESR",
+            "Temporal artery biopsy"
+          ],
+          "specialty": "Rheumatology"
+        }
+      ]
+    },
+    {
+      "id": "toxic_substance",
+      "name": "Toxic and Substance-Related Conditions",
+      "icon": "flask-conical",
+      "conditions": [
+        {
+          "id": "alcohol_intox",
+          "name": "Alcohol Intoxication",
+          "symptoms": [
+            "Euphoria",
+            "Impaired judgment"
+          ],
+          "signs": [
+            "Ataxia",
+            "Slurred speech"
+          ],
+          "investigations": [
+            "Serum ethanol level",
+            "GGT"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "alcohol_withdrawal",
+          "name": "Alcohol Withdrawal",
+          "symptoms": [
+            "Anxiety",
+            "Tremor"
+          ],
+          "signs": [
+            "Tachycardia",
+            "Hypertension, seizures"
+          ],
+          "investigations": [
+            "Serum electrolytes",
+            "Magnesium"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "wernicke_korsakoff",
+          "name": "Wernicke-Korsakoff Syndrome",
+          "symptoms": [
+            "Confusion",
+            "Anterograde amnesia"
+          ],
+          "signs": [
+            "Ophthalmoplegia",
+            "Ataxia"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Thiamine level"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "opioid_intox",
+          "name": "Opioid Intoxication",
+          "symptoms": [
+            "Euphoria",
+            "Drowsiness"
+          ],
+          "signs": [
+            "Miosis",
+            "Respiratory depression"
+          ],
+          "investigations": [
+            "Urine toxicology screen",
+            "Serum opioids"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "opioid_withdrawal",
+          "name": "Opioid Withdrawal",
+          "symptoms": [
+            "Anxiety",
+            "Muscle aches"
+          ],
+          "signs": [
+            "Yawning",
+            "Lacrimation, diarrhea"
+          ],
+          "investigations": [
+            "Urine toxicology",
+            "Clinical withdrawal scale"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "benzodiazepine_intox",
+          "name": "Benzodiazepine Intoxication",
+          "symptoms": [
+            "Sedation",
+            "Confusion"
+          ],
+          "signs": [
+            "Ataxia",
+            "Slurred speech"
+          ],
+          "investigations": [
+            "Serum benzodiazepine level",
+            "Urine toxicology"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "benzodiazepine_withdrawal",
+          "name": "Benzodiazepine Withdrawal",
+          "symptoms": [
+            "Anxiety",
+            "Insomnia"
+          ],
+          "signs": [
+            "Tremor",
+            "Seizures, delirium"
+          ],
+          "investigations": [
+            "Clinical assessment",
+            "Urine toxicology"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "stimulant_intox",
+          "name": "Stimulant Intoxication",
+          "symptoms": [
+            "Euphoria",
+            "Paranoia"
+          ],
+          "signs": [
+            "Tachycardia",
+            "Hypertension, mydriasis"
+          ],
+          "investigations": [
+            "Urine toxicology",
+            "Serum CK"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "cannabis_intox",
+          "name": "Cannabis Intoxication",
+          "symptoms": [
+            "Euphoria",
+            "Paranoia"
+          ],
+          "signs": [
+            "Conjunctival injection",
+            "Tachycardia"
+          ],
+          "investigations": [
+            "Urine THC metabolites",
+            "Clinical assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "cannabis_withdrawal",
+          "name": "Cannabis Withdrawal",
+          "symptoms": [
+            "Irritability",
+            "Insomnia"
+          ],
+          "signs": [
+            "Decreased appetite",
+            "Restlessness"
+          ],
+          "investigations": [
+            "Clinical assessment",
+            "Urine toxicology"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "lead_poisoning",
+          "name": "Lead Poisoning",
+          "symptoms": [
+            "Irritability",
+            "Abdominal pain"
+          ],
+          "signs": [
+            "Wrist drop",
+            "Anemia"
+          ],
+          "investigations": [
+            "Blood lead level",
+            "Microcytic anemia"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "arsenic_poisoning",
+          "name": "Arsenic Poisoning",
+          "symptoms": [
+            "Mood changes",
+            "Abdominal pain"
+          ],
+          "signs": [
+            "Mees lines",
+            "Neuropathy"
+          ],
+          "investigations": [
+            "24-hour urine arsenic",
+            "Clinical assessment"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "mercury_poisoning",
+          "name": "Mercury Poisoning",
+          "symptoms": [
+            "Tremor",
+            "Emotional lability"
+          ],
+          "signs": [
+            "Gingivostomatitis",
+            "Ataxia"
+          ],
+          "investigations": [
+            "Blood/urine mercury level",
+            "Clinical assessment"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "manganese_poisoning",
+          "name": "Manganese Poisoning",
+          "symptoms": [
+            "Psychiatric symptoms",
+            "Parkinsonism"
+          ],
+          "signs": [
+            "Cock-walk gait",
+            "Dystonia"
+          ],
+          "investigations": [
+            "MRI brain (T1 hyperintensity in basal ganglia)",
+            "Clinical assessment"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "carbon_monoxide",
+          "name": "Carbon Monoxide Poisoning",
+          "symptoms": [
+            "Headache",
+            "Confusion"
+          ],
+          "signs": [
+            "Cherry-red skin",
+            "Altered consciousness"
+          ],
+          "investigations": [
+            "Carboxyhemoglobin level",
+            "Clinical assessment"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "organophosphate",
+          "name": "Organophosphate Poisoning",
+          "symptoms": [
+            "Anxiety",
+            "Confusion"
+          ],
+          "signs": [
+            "DUMBBELSS symptoms",
+            "Cholinergic crisis"
+          ],
+          "investigations": [
+            "Serum cholinesterase activity",
+            "Clinical assessment"
+          ],
+          "specialty": "Toxicology"
+        },
+        {
+          "id": "steroid_psych",
+          "name": "Corticosteroid-Induced Psychiatric Symptoms",
+          "symptoms": [
+            "Euphoria or depression",
+            "Insomnia"
+          ],
+          "signs": [
+            "Cushingoid appearance",
+            "Hypertension"
+          ],
+          "investigations": [
+            "Clinical correlation with medication timing",
+            "Psychiatric assessment"
+          ],
+          "specialty": "Psychiatry"
+        }
+      ]
+    },
+    {
+      "id": "traumatic_brain_injury",
+      "name": "Traumatic Brain Injury",
+      "icon": "brain-circuit",
+      "conditions": [
+        {
+          "id": "concussion",
+          "name": "Acute Concussion",
+          "symptoms": [
+            "Headache",
+            "Confusion"
+          ],
+          "signs": [
+            "Amnesia for event",
+            "Dizziness"
+          ],
+          "investigations": [
+            "CT brain (if red flags present)",
+            "Cognitive testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "post_concussive",
+          "name": "Post-Concussive Syndrome",
+          "symptoms": [
+            "Headache",
+            "Memory problems"
+          ],
+          "signs": [
+            "Difficulty concentrating",
+            "Sleep disturbance"
+          ],
+          "investigations": [
+            "Symptom assessment",
+            "Neuropsychological testing"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "chronic_te",
+          "name": "Chronic Traumatic Encephalopathy",
+          "symptoms": [
+            "Mood changes",
+            "Executive dysfunction"
+          ],
+          "signs": [
+            "Impulse control problems",
+            "Aggression"
+          ],
+          "investigations": [
+            "Clinical diagnosis (definitive only post-mortem)",
+            "Tau PET imaging (research)"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ptsd_tbi",
+          "name": "Post-Traumatic Stress Disorder",
+          "symptoms": [
+            "Intrusive memories",
+            "Avoidance"
+          ],
+          "signs": [
+            "Hypervigilance",
+            "Emotional numbing"
+          ],
+          "investigations": [
+            "CAPS-5",
+            "PCL-5"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "ptsd_depression",
+          "name": "Post-Traumatic Depression",
+          "symptoms": [
+            "Depressed mood",
+            "Anhedonia"
+          ],
+          "signs": [
+            "Sleep disturbance",
+            "Fatigue"
+          ],
+          "investigations": [
+            "Clinical depression scales",
+            "Clinical interview"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "tbi_personality",
+          "name": "Post-Traumatic Personality Change",
+          "symptoms": [
+            "Emotional lability",
+            "Impulsivity"
+          ],
+          "signs": [
+            "Disinhibition",
+            "Apathy"
+          ],
+          "investigations": [
+            "Neuropsychological testing",
+            "Clinical assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "dai",
+          "name": "Diffuse Axonal Injury",
+          "symptoms": [
+            "Immediate loss of consciousness",
+            "Persistent vegetative state"
+          ],
+          "signs": [
+            "Oculocephalic abnormalities",
+            "Decerebration"
+          ],
+          "investigations": [
+            "MRI brain (diffusion tensor imaging)",
+            "CT head"
+          ],
+          "specialty": "Neurosurgery"
+        },
+        {
+          "id": "epidural_hematoma",
+          "name": "Epidural Hematoma",
+          "symptoms": [
+            "Headache",
+            "Lucid interval"
+          ],
+          "signs": [
+            "Declining consciousness",
+            "Focal deficits"
+          ],
+          "investigations": [
+            "CT brain (biconvex collection)",
+            "Surgical consultation"
+          ],
+          "specialty": "Neurosurgery"
+        },
+        {
+          "id": "subdural_hematoma",
+          "name": "Subdural Hematoma",
+          "symptoms": [
+            "Headache",
+            "Cognitive decline"
+          ],
+          "signs": [
+            "Gait disturbance",
+            "Fluctuating consciousness"
+          ],
+          "investigations": [
+            "CT brain (crescent-shaped collection)",
+            "MRI brain"
+          ],
+          "specialty": "Neurosurgery"
+        }
+      ]
+    },
+    {
+      "id": "neoplastic",
+      "name": "Neoplastic Conditions",
+      "icon": "stethoscope",
+      "conditions": [
+        {
+          "id": "glioma",
+          "name": "Glioma",
+          "symptoms": [
+            "Personality changes",
+            "Seizures"
+          ],
+          "signs": [
+            "Focal neurological deficits",
+            "Headache"
+          ],
+          "investigations": [
+            "MRI brain with contrast",
+            "Biopsy"
+          ],
+          "specialty": "Neuro-oncology"
+        },
+        {
+          "id": "meningioma",
+          "name": "Meningioma",
+          "symptoms": [
+            "Personality changes",
+            "Headache"
+          ],
+          "signs": [
+            "Focal deficits",
+            "Seizures"
+          ],
+          "investigations": [
+            "MRI brain with contrast",
+            "MRA"
+          ],
+          "specialty": "Neuro-oncology"
+        },
+        {
+          "id": "pituitary_adenoma",
+          "name": "Pituitary Adenoma",
+          "symptoms": [
+            "Mood changes",
+            "Visual changes"
+          ],
+          "signs": [
+            "Bitemporal hemianopsia",
+            "Hormonal abnormalities"
+          ],
+          "investigations": [
+            "MRI pituitary",
+            "Hormone panel"
+          ],
+          "specialty": "Endocrinology"
+        },
+        {
+          "id": "craniopharyngioma",
+          "name": "Craniopharyngioma",
+          "symptoms": [
+            "Cognitive changes",
+            "Visual field defects"
+          ],
+          "signs": [
+            "Hypothalamic dysfunction",
+            "Endocrine abnormalities"
+          ],
+          "investigations": [
+            "MRI brain",
+            "Hormone evaluation"
+          ],
+          "specialty": "Neuro-oncology"
+        },
+        {
+          "id": "primary_cns_lymphoma",
+          "name": "Primary CNS Lymphoma",
+          "symptoms": [
+            "Cognitive decline",
+            "Psychiatric symptoms"
+          ],
+          "signs": [
+            "Focal neurological signs",
+            "Fever (in immunocompromised)"
+          ],
+          "investigations": [
+            "MRI brain (periventricular lesions)",
+            "CSF cytology"
+          ],
+          "specialty": "Neuro-oncology"
+        },
+        {
+          "id": "metastatic_brain_tumor",
+          "name": "Metastatic Brain Tumor",
+          "symptoms": [
+            "Headache",
+            "Focal deficits"
+          ],
+          "signs": [
+            "Seizures",
+            "Cognitive impairment"
+          ],
+          "investigations": [
+            "MRI brain with contrast",
+            "Primary tumor workup"
+          ],
+          "specialty": "Neuro-oncology"
+        },
+        {
+          "id": "paraneoplastic_lem",
+          "name": "Paraneoplastic Limbic Encephalitis",
+          "symptoms": [
+            "Memory loss",
+            "Psychiatric symptoms"
+          ],
+          "signs": [
+            "Seizures",
+            "Hypoventilation"
+          ],
+          "investigations": [
+            "Anti-neuronal antibodies",
+            "PET-CT for malignancy"
+          ],
+          "specialty": "Oncology"
+        },
+        {
+          "id": "leptomeningeal_carcinomatosis",
+          "name": "Leptomeningeal Carcinomatosis",
+          "symptoms": [
+            "Headache",
+            "Cranial neuropathies"
+          ],
+          "signs": [
+            "Multiple cranial nerve palsies",
+            "Spinal root involvement"
+          ],
+          "investigations": [
+            "MRI spine/brain with contrast",
+            "CSF cytology"
+          ],
+          "specialty": "Oncology"
+        }
+      ]
+    },
+    {
+      "id": "genetic_developmental",
+      "name": "Genetic and Developmental Disorders",
+      "icon": "dna",
+      "conditions": [
+        {
+          "id": "down_syndrome",
+          "name": "Down Syndrome",
+          "symptoms": [
+            "Intellectual disability",
+            "Distinctive facies"
+          ],
+          "signs": [
+            "Upslanting palpebral fissures",
+            "Single palmar crease"
+          ],
+          "investigations": [
+            "Chromosomal analysis (trisomy 21)",
+            "Clinical assessment"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "fragile_x",
+          "name": "Fragile X Syndrome",
+          "symptoms": [
+            "Intellectual disability",
+            "Anxiety"
+          ],
+          "signs": [
+            "Long face",
+            "Large ears, macroorchidism"
+          ],
+          "investigations": [
+            "FMR1 gene testing",
+            "Clinical assessment"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "vcfs",
+          "name": "Velocardiofacial Syndrome",
+          "symptoms": [
+            "Schizophrenia risk",
+            "Learning difficulties"
+          ],
+          "signs": [
+            "Cleft palate",
+            "Cardiac anomalies"
+          ],
+          "investigations": [
+            "Chromosomal microarray",
+            "FISH for 22q11.2 deletion"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "turner_syndrome",
+          "name": "Turner Syndrome",
+          "symptoms": [
+            "Social anxiety",
+            "Learning difficulties"
+          ],
+          "signs": [
+            "Short stature",
+            "Webbed neck"
+          ],
+          "investigations": [
+            "Karyotype (45,X)",
+            "Echocardiogram"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "klinefelter",
+          "name": "Klinefelter Syndrome",
+          "symptoms": [
+            "Social withdrawal",
+            "Learning difficulties"
+          ],
+          "signs": [
+            "Gynecomastia",
+            "Tall stature"
+          ],
+          "investigations": [
+            "Karyotype (47,XXY)",
+            "Testosterone level"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "nf1",
+          "name": "Neurofibromatosis Type 1",
+          "symptoms": [
+            "Learning disabilities",
+            "Attention problems"
+          ],
+          "signs": [
+            "Café-au-lait spots",
+            "Neurofibromas"
+          ],
+          "investigations": [
+            "Clinical criteria",
+            "NF1 gene testing"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "tuberous_sclerosis",
+          "name": "Tuberous Sclerosis",
+          "symptoms": [
+            "Autism",
+            "Seizures"
+          ],
+          "signs": [
+            "Facial angiofibromas",
+            "Hypomelanotic macules"
+          ],
+          "investigations": [
+            "Genetic testing (TSC1/TSC2)",
+            "Brain MRI"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "williams_syndrome",
+          "name": "Williams Syndrome",
+          "symptoms": [
+            "Extreme sociability",
+            "Intellectual disability"
+          ],
+          "signs": [
+            "Elfin facies",
+            "Cardiovascular disease"
+          ],
+          "investigations": [
+            "Chromosomal deletion (7q11.23) testing",
+            "Cardiac evaluation"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "prader_willi",
+          "name": "Prader-Willi Syndrome",
+          "symptoms": [
+            "Hyperphagia",
+            "Temper outbursts"
+          ],
+          "signs": [
+            "Obesity",
+            "Hypogonadism"
+          ],
+          "investigations": [
+            "Methylation analysis (chromosome 15)",
+            "Clinical assessment"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "angelman",
+          "name": "Angelman Syndrome",
+          "symptoms": [
+            "Happy demeanor",
+            "Seizures"
+          ],
+          "signs": [
+            "Ataxia",
+            "Inappropriate laughter"
+          ],
+          "investigations": [
+            "UBE3A gene testing",
+            "Clinical assessment"
+          ],
+          "specialty": "Genetics"
+        },
+        {
+          "id": "rett_syndrome",
+          "name": "Rett Syndrome",
+          "symptoms": [
+            "Loss of purposeful hand skills",
+            "Autism"
+          ],
+          "signs": [
+            "Hand wringing",
+            "Regression"
+          ],
+          "investigations": [
+            "MECP2 gene testing",
+            "Clinical assessment"
+          ],
+          "specialty": "Neurology"
+        },
+        {
+          "id": "ataxia_telangiectasia",
+          "name": "Ataxia-Telangiectasia",
+          "symptoms": [
+            "Ataxia",
+            "Telangiectasias"
+          ],
+          "signs": [
+            "Immunodeficiency",
+            "Increased AFP"
+          ],
+          "investigations": [
+            "Genetic testing (ATM)",
+            "AFP level"
+          ],
+          "specialty": "Neurology"
+        }
+      ]
+    },
+    {
+      "id": "sleep_disorders",
+      "name": "Sleep Disorders",
+      "icon": "moon",
+      "conditions": [
+        {
+          "id": "osa",
+          "name": "Obstructive Sleep Apnea",
+          "symptoms": [
+            "Excessive daytime sleepiness",
+            "Snoring"
+          ],
+          "signs": [
+            "Obesity",
+            "Witnessed apneas"
+          ],
+          "investigations": [
+            "Polysomnography",
+            "Overnight oximetry"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "central_sa",
+          "name": "Central Sleep Apnea",
+          "symptoms": [
+            "Insomnia",
+            "Daytime sleepiness"
+          ],
+          "signs": [
+            "Heart failure or stroke history",
+            "Cheyne-Stokes breathing"
+          ],
+          "investigations": [
+            "Polysomnography",
+            "Cardiac evaluation"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "narcolepsy",
+          "name": "Narcolepsy",
+          "symptoms": [
+            "Excessive daytime sleepiness",
+            "Cataplexy"
+          ],
+          "signs": [
+            "Sleep paralysis",
+            "Hypnagogic hallucinations"
+          ],
+          "investigations": [
+            "Multiple sleep latency test",
+            "Hypocretin level"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "idiopathic_hypersomnia",
+          "name": "Idiopathic Hypersomnia",
+          "symptoms": [
+            "Excessive sleepiness",
+            "Unrefreshing sleep"
+          ],
+          "signs": [
+            "Long sleep duration",
+            "Difficulty awakening"
+          ],
+          "investigations": [
+            "Multiple sleep latency test",
+            "Sleep log"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "circadian_rhythm",
+          "name": "Circadian Rhythm Sleep Disorder",
+          "symptoms": [
+            "Insomnia",
+            "Excessive sleepiness"
+          ],
+          "signs": [
+            "Social jet lag",
+            "Delayed sleep phase"
+          ],
+          "investigations": [
+            "Actigraphy",
+            "Sleep log"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "rls",
+          "name": "Restless Legs Syndrome",
+          "symptoms": [
+            "Restlessness",
+            "Sleep disruption"
+          ],
+          "signs": [
+            "Urge to move legs",
+            "Worsening at rest"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Iron studies"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "plmd",
+          "name": "Periodic Limb Movement Disorder",
+          "symptoms": [
+            "Sleep fragmentation",
+            "Daytime fatigue"
+          ],
+          "signs": [
+            "Limb movements during sleep",
+            "Sleep disruption"
+          ],
+          "investigations": [
+            "Polysomnography",
+            "Clinical assessment"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "rem_behavior_disorder",
+          "name": "REM Sleep Behavior Disorder",
+          "symptoms": [
+            "Dream enactment",
+            "Sleep injury"
+          ],
+          "signs": [
+            "Absence of muscle atonia during REM",
+            "Complex motor behaviors"
+          ],
+          "investigations": [
+            "Polysomnography (muscle atonia measurement)",
+            "Clinical history"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "kleine_levin",
+          "name": "Kleine-Levin Syndrome",
+          "symptoms": [
+            "Hypersomnia",
+            "Hyperphagia"
+          ],
+          "signs": [
+            "Mood changes",
+            "Hypersexuality"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Rule out other causes"
+          ],
+          "specialty": "Sleep Medicine"
+        },
+        {
+          "id": "nightmare_disorder",
+          "name": "Nightmare Disorder",
+          "symptoms": [
+            "Distressing dreams",
+            "Sleep avoidance"
+          ],
+          "signs": [
+            "Recall of nightmares",
+            "Daytime impairment"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Sleep diary"
+          ],
+          "specialty": "Sleep Medicine"
+        }
+      ]
+    },
+    {
+      "id": "primary_psychiatric",
+      "name": "Primary Psychiatric Conditions",
+      "icon": "brain",
+      "conditions": [
+        {
+          "id": "major_depression",
+          "name": "Major Depressive Disorder",
+          "symptoms": [
+            "Depressed mood",
+            "Anhedonia"
+          ],
+          "signs": [
+            "Psychomotor changes",
+            "Weight changes"
+          ],
+          "investigations": [
+            "PHQ-9",
+            "Rule out medical causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "bipolar_manic",
+          "name": "Bipolar Disorder (Manic Phase)",
+          "symptoms": [
+            "Elevated mood",
+            "Decreased need for sleep"
+          ],
+          "signs": [
+            "Pressured speech",
+            "Grandiosity"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out medical causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "bipolar_depressive",
+          "name": "Bipolar Disorder (Depressive Phase)",
+          "symptoms": [
+            "Depressed mood",
+            "Anhedonia"
+          ],
+          "signs": [
+            "Same as major depression",
+            "History of mania"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Longitudinal assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "schizophrenia",
+          "name": "Schizophrenia",
+          "symptoms": [
+            "Hallucinations",
+            "Delusions"
+          ],
+          "signs": [
+            "Disorganized thinking",
+            "Negative symptoms"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out organic causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "schizoaffective",
+          "name": "Schizoaffective Disorder",
+          "symptoms": [
+            "Psychotic symptoms",
+            "Mood episodes"
+          ],
+          "signs": [
+            "Combination of features",
+            "Psychosis without mood symptoms"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Longitudinal assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "brief_psychotic",
+          "name": "Brief Psychotic Disorder",
+          "symptoms": [
+            "Acute onset psychosis",
+            "Delusions"
+          ],
+          "signs": [
+            "Sudden onset",
+            "Stressor-related"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out medical causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "delusional_disorder",
+          "name": "Delusional Disorder",
+          "symptoms": [
+            "Non-bizarre delusions",
+            "Systematized delusions"
+          ],
+          "signs": [
+            "No other psychotic features",
+            "Functioning relatively preserved"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Rule out other causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "gad",
+          "name": "Generalized Anxiety Disorder",
+          "symptoms": [
+            "Excessive worry",
+            "Restlessness"
+          ],
+          "signs": [
+            "Physical symptoms of anxiety",
+            "Difficulty controlling worry"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "GAD-7"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "panic_disorder",
+          "name": "Panic Disorder",
+          "symptoms": [
+            "Panic attacks",
+            "Fear of future attacks"
+          ],
+          "signs": [
+            "Autonomic symptoms during attacks",
+            "Agoraphobia"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out cardiac causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "social_anxiety",
+          "name": "Social Anxiety Disorder",
+          "symptoms": [
+            "Fear of social situations",
+            "Avoidance"
+          ],
+          "signs": [
+            "Performance anxiety",
+            "Blushing"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Social Phobia Inventory"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "specific_phobia",
+          "name": "Specific Phobia",
+          "symptoms": [
+            "Fear of specific object/situation",
+            "Intense fear response"
+          ],
+          "signs": [
+            "Avoidance",
+            "Distress out of proportion"
+          ],
+          "investigations": [
+            "Clinical diagnosis",
+            "Assessment of impairment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "ocd",
+          "name": "Obsessive-Compulsive Disorder",
+          "symptoms": [
+            "Obsessions",
+            "Compulsions"
+          ],
+          "signs": [
+            "Time-consuming behaviors",
+            "Distress if prevented"
+          ],
+          "investigations": [
+            "Y-BOCS",
+            "Clinical interview"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "ptsd",
+          "name": "Post-Traumatic Stress Disorder",
+          "symptoms": [
+            "Intrusive symptoms",
+            "Avoidance"
+          ],
+          "signs": [
+            "Hyperarousal",
+            "Negative alterations"
+          ],
+          "investigations": [
+            "CAPS-5",
+            "PCL-5"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "acute_stress_disorder",
+          "name": "Acute Stress Disorder",
+          "symptoms": [
+            "Intrusive symptoms",
+            "Dissociation"
+          ],
+          "signs": [
+            "Within 1 month of trauma",
+            "Re-experiencing"
+          ],
+          "investigations": [
+            "CAPS-5",
+            "Clinical interview"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "did",
+          "name": "Dissociative Identity Disorder",
+          "symptoms": [
+            "Multiple personality states",
+            "Amnesia"
+          ],
+          "signs": [
+            "Switching",
+            "Dissociative episodes"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out malingering"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "dissociative_amnesia",
+          "name": "Dissociative Amnesia",
+          "symptoms": [
+            "Inability to recall personal information",
+            "Localized or selective amnesia"
+          ],
+          "signs": [
+            "Cannot be explained by other conditions",
+            "Distress/impairment"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out medical causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "conversion",
+          "name": "Conversion Disorder",
+          "symptoms": [
+            "Neurological symptoms",
+            "Inconsistent with anatomy"
+          ],
+          "signs": [
+            "La belle indifférence",
+            "Symptom inconsistency"
+          ],
+          "investigations": [
+            "Neurological workup negative",
+            "Clinical assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "factitious",
+          "name": "Factitious Disorder",
+          "symptoms": [
+            "Feigned illness",
+            "Seeking treatment"
+          ],
+          "signs": [
+            "Evidence of deception",
+            "Multiple hospitalizations"
+          ],
+          "investigations": [
+            "Careful history",
+            "Collateral information"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "malingering",
+          "name": "Malingering",
+          "symptoms": [
+            "Symptom exaggeration",
+            "External incentives"
+          ],
+          "signs": [
+            "Inconsistencies",
+            "Lack of cooperation"
+          ],
+          "investigations": [
+            "Careful assessment",
+            "Collateral information"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "somatic_symptom",
+          "name": "Somatic Symptom Disorder",
+          "symptoms": [
+            "Excessive thoughts about symptoms",
+            "High anxiety"
+          ],
+          "signs": [
+            "Multiple physical complaints",
+            "Disproportionate thoughts"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Medical clearance"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "illness_anxiety",
+          "name": "Illness Anxiety Disorder",
+          "symptoms": [
+            "Fear of having illness",
+            "High anxiety"
+          ],
+          "signs": [
+            "Minimal somatic symptoms",
+            "Doctor-shopping"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out medical causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "bulimia",
+          "name": "Bulimia Nervosa",
+          "symptoms": [
+            "Binge eating",
+            "Compensatory behaviors"
+          ],
+          "signs": [
+            "Weight fluctuations",
+            "Electrolyte abnormalities"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Labs (electrolytes)"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "anorexia",
+          "name": "Anorexia Nervosa",
+          "symptoms": [
+            "Food restriction",
+            "Body image disturbance"
+          ],
+          "signs": [
+            "Low BMI",
+            "Lanugo"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Labs (electrolytes, ECG)"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "binge_eating",
+          "name": "Binge Eating Disorder",
+          "symptoms": [
+            "Recurrent binge eating",
+            "Distress about eating"
+          ],
+          "signs": [
+            "Obesity",
+            "No compensatory behaviors"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rule out other eating disorders"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "gender_dysphoria",
+          "name": "Gender Dysphoria",
+          "symptoms": [
+            "Distress about assigned gender",
+            "Desire to be other gender"
+          ],
+          "signs": [
+            "Persistent gender nonconformity",
+            "Cross-gender identification"
+          ],
+          "investigations": [
+            "Clinical assessment",
+            "Mental health evaluation"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "asd",
+          "name": "Autism Spectrum Disorder",
+          "symptoms": [
+            "Social communication deficits",
+            "Restricted interests"
+          ],
+          "signs": [
+            "Repetitive behaviors",
+            "Sensory issues"
+          ],
+          "investigations": [
+            "ADOS-2, ADI-R",
+            "Clinical assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "adhd",
+          "name": "Attention-Deficit/Hyperactivity Disorder",
+          "symptoms": [
+            "Inattention",
+            "Hyperactivity"
+          ],
+          "signs": [
+            "Academic/occupational impairment",
+            "Symptom duration >6 months"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Rating scales"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "conduct_disorder",
+          "name": "Conduct Disorder",
+          "symptoms": [
+            "Aggression",
+            "Violation of rules"
+          ],
+          "signs": [
+            "Destruction of property",
+            "Deceitfulness"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Collateral information"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "oppositional_defiant",
+          "name": "Oppositional Defiant Disorder",
+          "symptoms": [
+            "Angry/irritable mood",
+            "Argumentative behavior"
+          ],
+          "signs": [
+            "Defiance",
+            "Vindictiveness"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Collateral information"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "personality_cluster_a",
+          "name": "Personality Disorder (Cluster A)",
+          "symptoms": [
+            "Odd beliefs",
+            "Social detachment"
+          ],
+          "signs": [
+            "Paranoid, schizoid, or schizotypal features",
+            "Long-standing pattern"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Longitudinal assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "personality_cluster_b",
+          "name": "Personality Disorder (Cluster B)",
+          "symptoms": [
+            "Dramatic, emotional, erratic behaviors",
+            "Identity disturbance"
+          ],
+          "signs": [
+            "Antisocial, borderline, histrionic, or narcissistic traits",
+            "Long-standing pattern"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Longitudinal assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "personality_cluster_c",
+          "name": "Personality Disorder (Cluster C)",
+          "symptoms": [
+            "Anxious, fearful behaviors",
+            "Social inhibition"
+          ],
+          "signs": [
+            "Avoidant, dependent, or obsessive-compulsive traits",
+            "Long-standing pattern"
+          ],
+          "investigations": [
+            "Clinical interview",
+            "Longitudinal assessment"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "mild_ncd",
+          "name": "Mild Neurocognitive Disorder",
+          "symptoms": [
+            "Modest cognitive decline",
+            "Concern about cognition"
+          ],
+          "signs": [
+            "Mild impairment on testing",
+            "Preserved independence"
+          ],
+          "investigations": [
+            "Neuropsychological testing",
+            "Rule out other causes"
+          ],
+          "specialty": "Psychiatry"
+        },
+        {
+          "id": "major_ncd",
+          "name": "Major Neurocognitive Disorder",
+          "symptoms": [
+            "Significant cognitive decline",
+            "Functional impairment"
+          ],
+          "signs": [
+            "Clear impairment on testing",
+            "Dependency on others"
+          ],
+          "investigations": [
+            "Comprehensive dementia workup",
+            "Neuropsychological testing"
+          ],
+          "specialty": "Neurology"
+        }
+      ]
+    },
+    {
+      "id": "cardiovascular",
+      "name": "Cardiovascular Conditions",
+      "icon": "heart",
+      "conditions": [
+        {
+          "id": "arrhythmia",
+          "name": "Cardiac Arrhythmia",
+          "symptoms": [
+            "Syncope",
+            "Palpitations"
+          ],
+          "signs": [
+            "Irregular pulse",
+            "Murmur"
+          ],
+          "investigations": [
+            "ECG",
+            "Holter monitor"
+          ],
+          "specialty": "Cardiology"
+        },
+        {
+          "id": "heart_failure",
+          "name": "Heart Failure",
+          "symptoms": [
+            "Fatigue",
+            "Cognitive changes"
+          ],
+          "signs": [
+            "Edema",
+            "Crackles on auscultation"
+          ],
+          "investigations": [
+            "BNP",
+            "Echocardiogram"
+          ],
+          "specialty": "Cardiology"
+        },
+        {
+          "id": "orthostatic_hypotension",
+          "name": "Orthostatic Hypotension",
+          "symptoms": [
+            "Lightheadedness",
+            "Syncope"
+          ],
+          "signs": [
+            "Drop in BP on standing",
+            "Tachycardia"
+          ],
+          "investigations": [
+            "Orthostatic vital signs",
+            "Autonomic testing"
+          ],
+          "specialty": "Cardiology"
+        },
+        {
+          "id": "aortic_stenosis",
+          "name": "Aortic Stenosis",
+          "symptoms": [
+            "Syncope",
+            "Angina"
+          ],
+          "signs": [
+            "Systolic ejection murmur",
+            "Slow pulse"
+          ],
+          "investigations": [
+            "Echocardiogram",
+            "ECG"
+          ],
+          "specialty": "Cardiology"
+        }
+      ]
+    },
+    {
+      "id": "pulmonary",
+      "name": "Pulmonary Conditions",
+      "icon": "lungs",
+      "conditions": [
+        {
+          "id": "copd",
+          "name": "Chronic Obstructive Pulmonary Disease",
+          "symptoms": [
+            "Dyspnea",
+            "Cough"
+          ],
+          "signs": [
+            "Barrel chest",
+            "Wheezing"
+          ],
+          "investigations": [
+            "Pulmonary function tests",
+            "ABG"
+          ],
+          "specialty": "Pulmonology"
+        },
+        {
+          "id": "pulmonary_embolism",
+          "name": "Pulmonary Embolism",
+          "symptoms": [
+            "Dyspnea",
+            "Chest pain"
+          ],
+          "signs": [
+            "Tachycardia",
+            "Hypoxia"
+          ],
+          "investigations": [
+            "CT pulmonary angiogram",
+            "D-dimer"
+          ],
+          "specialty": "Pulmonology"
+        },
+        {
+          "id": "respiratory_failure",
+          "name": "Respiratory Failure",
+          "symptoms": [
+            "Dyspnea",
+            "Confusion"
+          ],
+          "signs": [
+            "Hypoxemia",
+            "Hypercapnia"
+          ],
+          "investigations": [
+            "ABG",
+            "Pulmonary function tests"
+          ],
+          "specialty": "Pulmonology"
+        }
+      ]
+    },
+    {
+      "id": "hematological",
+      "name": "Hematological Conditions",
+      "icon": "droplet",
+      "conditions": [
+        {
+          "id": "severe_anemia",
+          "name": "Severe Anemia",
+          "symptoms": [
+            "Fatigue",
+            "Cognitive fog"
+          ],
+          "signs": [
+            "Pallor",
+            "Tachycardia"
+          ],
+          "investigations": [
+            "CBC",
+            "Iron studies"
+          ],
+          "specialty": "Hematology"
+        },
+        {
+          "id": "macrocytic_anemia",
+          "name": "Megaloblastic Anemia",
+          "symptoms": [
+            "Fatigue",
+            "Cognitive changes"
+          ],
+          "signs": [
+            "Macrocytosis",
+            "Hypersegmented neutrophils"
+          ],
+          "investigations": [
+            "CBC",
+            "B12, folate"
+          ],
+          "specialty": "Hematology"
+        },
+        {
+          "id": "polycythemia",
+          "name": "Polycythemia Vera",
+          "symptoms": [
+            "Headache",
+            "Dizziness"
+          ],
+          "signs": [
+            "Plethora",
+            "Splenomegaly"
+          ],
+          "investigations": [
+            "CBC",
+            "JAK2 mutation"
+          ],
+          "specialty": "Hematology"
+        }
+      ]
+    },
+    {
+      "id": "rheumatological",
+      "name": "Rheumatological Conditions",
+      "icon": "bone",
+      "conditions": [
+        {
+          "id": "rheumatoid_arthritis",
+          "name": "Rheumatoid Arthritis",
+          "symptoms": [
+            "Morning stiffness",
+            "Fatigue"
+          ],
+          "signs": [
+            "Symmetric polyarthritis",
+            "Rheumatoid nodules"
+          ],
+          "investigations": [
+            "RF",
+            "Anti-CCP antibodies"
+          ],
+          "specialty": "Rheumatology"
+        },
+        {
+          "id": "dermatomyositis",
+          "name": "Dermatomyositis",
+          "symptoms": [
+            "Proximal muscle weakness",
+            "Skin changes"
+          ],
+          "signs": [
+            "Heliotrope rash",
+            "Gottron's papules"
+          ],
+          "investigations": [
+            "CK",
+            "Anti-Mi-2 antibodies"
+          ],
+          "specialty": "Rheumatology"
+        },
+        {
+          "id": "polymyositis",
+          "name": "Polymyositis",
+          "symptoms": [
+            "Proximal muscle weakness",
+            "Elevated CK"
+          ],
+          "signs": [
+            "No skin involvement",
+            "Dysphagia"
+          ],
+          "investigations": [
+            "CK",
+            "EMG, muscle biopsy"
+          ],
+          "specialty": "Rheumatology"
+        }
+      ]
+    },
+    {
+      "id": "gastrointestinal",
+      "name": "Gastrointestinal Conditions",
+      "icon": "stomach",
+      "conditions": [
+        {
+          "id": "celiac",
+          "name": "Celiac Disease",
+          "symptoms": [
+            "Diarrhea",
+            "Bloating"
+          ],
+          "signs": [
+            "Weight loss",
+            "Dermatitis herpetiformis"
+          ],
+          "investigations": [
+            "Anti-tTG IgA",
+            "Duodenal biopsy"
+          ],
+          "specialty": "Gastroenterology"
+        },
+        {
+          "id": "ibd",
+          "name": "Inflammatory Bowel Disease",
+          "symptoms": [
+            "Abdominal pain",
+            "Diarrhea"
+          ],
+          "signs": [
+            "Rectal bleeding",
+            "Extraintestinal manifestations"
+          ],
+          "investigations": [
+            "Colonoscopy",
+            "Fecal calprotectin"
+          ],
+          "specialty": "Gastroenterology"
+        },
+        {
+          "id": "cirrhosis",
+          "name": "Cirrhosis",
+          "symptoms": [
+            "Fatigue",
+            "Easy bruising"
+          ],
+          "signs": [
+            "Ascites",
+            "Caput medusae"
+          ],
+          "investigations": [
+            "Liver function tests",
+            "Ultrasound"
+          ],
+          "specialty": "Hepatology"
+        }
+      ]
+    },
+    {
+      "id": "renal",
+      "name": "Renal Conditions",
+      "icon": "kidney",
+      "conditions": [
+        {
+          "id": "aki",
+          "name": "Acute Kidney Injury",
+          "symptoms": [
+            "Decreased urine output",
+            "Confusion"
+          ],
+          "signs": [
+            "Edema",
+            "Elevated creatinine"
+          ],
+          "investigations": [
+            "Serum creatinine",
+            "BUN, electrolytes"
+          ],
+          "specialty": "Nephrology"
+        },
+        {
+          "id": "ckd",
+          "name": "Chronic Kidney Disease",
+          "symptoms": [
+            "Fatigue",
+            "Cognitive changes"
+          ],
+          "signs": [
+            "Pruritus",
+            "Edema"
+          ],
+          "investigations": [
+            "eGFR",
+            "Creatinine, urinalysis"
+          ],
+          "specialty": "Nephrology"
+        },
+        {
+          "id": "nephrotic_syndrome",
+          "name": "Nephrotic Syndrome",
+          "symptoms": [
+            "Edema",
+            "Foamy urine"
+          ],
+          "signs": [
+            "Hypoalbuminemia",
+            "Proteinuria"
+          ],
+          "investigations": [
+            "Urine protein/creatinine ratio",
+            "Albumin"
+          ],
+          "specialty": "Nephrology"
+        }
+      ]
+    }
+  ],
+  "quiz": {
+    "modes": [
+      {
+        "id": "random",
+        "name": "Random Case",
+        "description": "Random condition from any category"
+      },
+      {
+        "id": "category",
+        "name": "Category Review",
+        "description": "Focus on a specific category"
+      },
+      {
+        "id": "specialty",
+        "name": "Specialty Review",
+        "description": "Conditions by specialty"
+      }
+    ],
+    "progressive_levels": [
+      {
+        "level": 1,
+        "name": "Symptoms",
+        "description": "Reveal the clinical symptoms",
+        "color": "blue"
+      },
+      {
+        "level": 2,
+        "name": "Signs",
+        "description": "Reveal the physical examination findings",
+        "color": "green"
+      },
+      {
+        "level": 3,
+        "name": "Investigations",
+        "description": "Reveal the diagnostic investigations",
+        "color": "purple"
+      },
+      {
+        "level": 4,
+        "name": "Answer",
+        "description": "Reveal the diagnosis and specialty",
+        "color": "gold"
+      }
+    ]
+  }
+}
