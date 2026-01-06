@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychiatric Diagnosis Learning Tool - Progressive Disclosure</title>
+    <title>NeuroPsych Diagnosis Trainer</title>
     <style>
         * {
             margin: 0;
@@ -12,691 +12,430 @@
         }
 
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #9b59b6;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --symptoms-color: #3498db;
-            --signs-color: #27ae60;
-            --investigations-color: #9b59b6;
-            --answer-color: #f39c12;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
+            --primary-teal: #0F766E;
+            --secondary-teal: #14B8A6;
+            --light-teal: #CCFBF1;
+            --background: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --accent-blue: #0EA5E9;
+            --learning-bg: #FFF7ED;
+            --learning-text: #C2410C;
+            --hint-bg: #F0FDF4;
+            --hint-text: #15803D;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
             min-height: 100vh;
-            color: var(--dark);
             line-height: 1.6;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
-            color: white;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        /* Navigation Tabs */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem;
-            background: white;
-            box-shadow: var(--shadow);
-            flex-wrap: wrap;
-        }
-
-        .nav-tab {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            background: var(--light);
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-tab:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .nav-tab.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .nav-tab svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: 20px;
         }
 
-        /* Section Styles */
-        .section {
-            display: none;
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--secondary-teal) 100%);
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow-lg);
         }
 
-        .section.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
         }
 
-        /* Category Grid */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .category-card {
+        /* Progress Bar */
+        .progress-container {
             background: white;
-            border-radius: var(--radius);
-            padding: 1.25rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow);
-            border-left: 4px solid var(--secondary);
         }
 
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .category-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .category-card p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .category-card .condition-count {
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid #eee;
-            font-size: 0.8rem;
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        /* Condition List */
-        .condition-list {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .condition-item {
-            padding: 1rem 1.25rem;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        .progress-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 12px;
         }
 
-        .condition-item:hover {
-            background: #f8f9fa;
-        }
-
-        .condition-item:last-child {
-            border-bottom: none;
-        }
-
-        .condition-item .name {
-            font-weight: 500;
-        }
-
-        .condition-item .specialty {
-            font-size: 0.8rem;
-            color: var(--secondary);
-            background: #e8f4fc;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-        }
-
-        /* Progressive Disclosure Card */
-        .progressive-card {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .card-header .level-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .level-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .level-dot.active {
-            background: #27ae60;
-            box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
-        }
-
-        .level-dot.completed {
-            background: #27ae60;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .disclosure-level {
-            display: none;
-            animation: slideIn 0.4s ease;
-        }
-
-        .disclosure-level.active {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .level-title {
-            font-size: 1.1rem;
+        .progress-title {
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--text-secondary);
         }
 
-        .level-title.symptoms { color: var(--symptoms-color); }
-        .level-title.signs { color: var(--signs-color); }
-        .level-title.investigations { color: var(--investigations-color); }
-        .level-title.answer { color: var(--answer-color); }
-
-        .level-content {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 1rem;
-        }
-
-        .level-content ul {
-            list-style: none;
-        }
-
-        .level-content li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            border-bottom: 1px solid #eee;
-        }
-
-        .level-content li:last-child {
-            border-bottom: none;
-        }
-
-        .level-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .symptoms .level-content li::before { content: '•'; color: var(--symptoms-color); font-size: 1.2rem; }
-        .signs .level-content li::before { content: '✚'; color: var(--signs-color); }
-        .investigations .level-content li::before { content: '🔬'; color: var(--investigations-color); }
-        .answer .level-content li::before { content: '★'; color: var(--answer-color); }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn-success:hover:not(:disabled) {
-            background: #219a52;
-        }
-
-        .btn-outline {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover:not(:disabled) {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-warning {
-            background: var(--warning);
-            color: white;
-        }
-
-        .btn-danger {
-            background: var(--danger);
-            color: white;
-        }
-
-        /* Quiz Section */
-        .quiz-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .quiz-card {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .quiz-progress {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .quiz-progress-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            transition: all 0.3s ease;
-        }
-
-        .quiz-progress-dot.correct { background: var(--success); }
-        .quiz-progress-dot.incorrect { background: var(--danger); }
-
-        .quiz-question {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .quiz-case {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .quiz-case h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .quiz-option {
-            padding: 1rem;
-            background: #f8f9fa;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
-
-        .quiz-option:hover {
-            border-color: var(--secondary);
-            background: #e8f4fc;
-        }
-
-        .quiz-option.correct {
-            border-color: var(--success);
-            background: #d4edda;
-        }
-
-        .quiz-option.incorrect {
-            border-color: var(--danger);
-            background: #f8d7da;
-        }
-
-        .quiz-feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .quiz-feedback.show { display: block; animation: slideIn 0.3s ease; }
-        .quiz-feedback.correct { background: #d4edda; color: #155724; }
-        .quiz-feedback.incorrect { background: #f8d7da; color: #721c24; }
-
-        /* Statistics Panel */
-        .stats-panel {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .stat-value {
-            font-size: 2rem;
+        .progress-count {
+            font-size: 14px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary-teal);
         }
 
-        .stat-label {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 0.25rem;
+        .progress-bar {
+            height: 8px;
+            background: #E2E8F0;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        /* Search Bar */
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-teal), var(--secondary-teal));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* Search */
         .search-container {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid #eee;
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
             outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .search-input:focus {
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
         }
 
-        /* Mode Selector */
-        .mode-selector {
+        /* Diagnosis Card */
+        .diagnosis-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 20px;
+        }
+
+        .diagnosis-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #F1F5F9;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--primary-teal);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .diagnosis-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .diagnosis-counter {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Disclosure Sections */
+        .disclosure-section {
+            margin-bottom: 24px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
+        }
+
+        .disclosure-section.visible {
+            opacity: 1;
+            max-height: 500px;
+        }
+
+        .section-header {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
-        .mode-btn {
-            padding: 0.5rem 1rem;
-            border: 2px solid #eee;
-            background: white;
-            border-radius: 8px;
+        .section-number {
+            width: 28px;
+            height: 28px;
+            background: var(--primary-teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .items-list {
+            list-style: none;
+            padding-left: 38px;
+        }
+
+        .items-list li {
+            position: relative;
+            padding: 10px 0;
+            padding-left: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .items-list li:last-child {
+            border-bottom: none;
+        }
+
+        .items-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-teal);
+            border-radius: 50%;
+        }
+
+        /* Final Section */
+        .final-section {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
+        }
+
+        .final-section.visible {
+            opacity: 1;
+            max-height: 2000px;
+        }
+
+        .final-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .final-card {
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .learning-card {
+            background: var(--learning-bg);
+            border: 1px solid #FED7AA;
+        }
+
+        .learning-card .final-card-title {
+            color: var(--learning-text);
+        }
+
+        .hint-card {
+            background: var(--hint-bg);
+            border: 1px solid #BBF7D0;
+        }
+
+        .hint-card .final-card-title {
+            color: var(--hint-text);
+        }
+
+        .final-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .final-card-title svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .final-items {
+            list-style: none;
+        }
+
+        .final-items li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .final-items li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+
+        /* Reveal Button */
+        .reveal-btn {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .reveal-btn.symptoms {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .reveal-btn.symptoms:hover {
+            background: #0D9488;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+        }
+
+        .reveal-btn.signs {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .reveal-btn.signs:hover {
+            background: #0284C7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .reveal-btn.tests {
+            background: #8B5CF6;
+            color: white;
+        }
+
+        .reveal-btn.tests:hover {
+            background: #7C3AED;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .reveal-btn.summary {
+            background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal));
+            color: white;
+        }
+
+        .reveal-btn.summary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+        }
+
+        .reveal-btn.completed {
+            background: #E2E8F0;
+            color: var(--text-secondary);
+            cursor: default;
+            transform: none;
+        }
+
+        .reveal-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            background: white;
+            color: var(--text-secondary);
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .mode-btn:hover {
-            border-color: var(--secondary);
+        .nav-btn:hover:not(:disabled) {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
         }
 
-        .mode-btn.active {
-            background: var(--secondary);
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.primary {
+            background: var(--primary-teal);
+            border-color: var(--primary-teal);
             color: white;
-            border-color: var(--secondary);
         }
 
-        /* Specialty Filter */
-        .specialty-filter {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-            justify-content: center;
+        .nav-btn.primary:hover {
+            background: #0D9488;
+            border-color: #0D9488;
         }
 
-        .specialty-btn {
-            padding: 0.4rem 0.8rem;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s ease;
-        }
-
-        .specialty-btn:hover,
-        .specialty-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Back Button */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .back-btn:hover {
-            background: var(--light);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.4rem;
-            }
-
-            .nav-tabs {
-                gap: 0.25rem;
-            }
-
-            .nav-tab {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .progressive-card {
-                margin: 0 0.5rem;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                justify-content: center;
-            }
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .header, .nav-tabs, .action-buttons, .quiz-section {
-                display: none;
-            }
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: relative;
-        }
-
-        .tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark);
-            color: white;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Loading Spinner */
+        /* Loading State */
         .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3rem;
+            text-align: center;
+            padding: 60px 20px;
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #eee;
-            border-top-color: var(--secondary);
+            width: 48px;
+            height: 48px;
+            border: 4px solid #E2E8F0;
+            border-top-color: var(--primary-teal);
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
         }
 
         @keyframes spin {
@@ -706,922 +445,471 @@
         /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 3rem;
-            color: #666;
+            padding: 60px 20px;
+            color: var(--text-secondary);
         }
 
         .empty-state svg {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
             opacity: 0.5;
         }
 
-        /* Help Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+        /* Stats Bar */
+        .stats-bar {
             display: flex;
-            align-items: center;
             justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
+        .stat-item {
+            text-align: center;
         }
 
-        .modal {
-            background: white;
-            border-radius: var(--radius);
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-teal);
         }
 
-        .modal-overlay.show .modal {
-            transform: scale(1);
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .modal-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px;
+            }
+
+            header {
+                padding: 24px 16px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .diagnosis-card {
+                padding: 24px 20px;
+            }
+
+            .diagnosis-title {
+                font-size: 20px;
+            }
+
+            .disclosure-section {
+                margin-bottom: 20px;
+            }
+
+            .final-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reveal-btn {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .stats-bar {
+                gap: 20px;
+            }
         }
 
-        .modal-header h3 {
-            font-size: 1.2rem;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-        }
-
-        .modal-body ol {
-            margin-left: 1.5rem;
-        }
-
-        .modal-body li {
-            margin-bottom: 0.75rem;
-        }
-
-        .help-btn {
+        /* Toast Notification */
+        .toast {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--secondary);
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text-primary);
             color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow);
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
             transition: all 0.3s ease;
-            z-index: 99;
+            z-index: 1000;
         }
 
-        .help-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Keyboard Shortcuts */
-        .keyboard-hint {
-            font-size: 0.75rem;
-            color: #999;
-            margin-top: 0.5rem;
-        }
-
-        kbd {
-            background: #eee;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.8rem;
+        .toast.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>🧠 Psychiatric Diagnosis Learning Tool</h1>
-        <p>Master differential diagnosis using the Rule of Two - Progressive Disclosure Method</p>
+    <header>
+        <h1>🧠 NeuroPsych Diagnosis Trainer</h1>
+        <p>Master clinical diagnosis through progressive learning</p>
     </header>
 
-    <nav class="nav-tabs">
-        <button class="nav-tab active" data-section="browse">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-            </svg>
-            Browse Conditions
-        </button>
-        <button class="nav-tab" data-section="learn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-            Progressive Learning
-        </button>
-        <button class="nav-tab" data-section="quiz">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
-            </svg>
-            Quiz Mode
-        </button>
-        <button class="nav-tab" data-section="progress">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-            My Progress
-        </button>
-    </nav>
-
-    <main class="container">
-        <!-- Browse Section -->
-        <section id="browse-section" class="section active">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="🔍 Search conditions by name, symptom, or specialty..." id="search-input">
-            </div>
-            <div class="specialty-filter" id="specialty-filter">
-                <button class="specialty-btn active" data-specialty="all">All Specialties</button>
-            </div>
-            <div class="category-grid" id="category-grid">
-                <!-- Categories will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Learn Section -->
-        <section id="learn-section" class="section">
-            <button class="back-btn" id="back-to-browse" style="display: none;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                Back to Categories
-            </button>
-            
-            <div id="learn-category-view">
-                <div class="mode-selector">
-                    <button class="mode-btn active" data-mode="sequential">Sequential</button>
-                    <button class="mode-btn" data-mode="random">Random</button>
-                    <button class="mode-btn" data-mode="weakest">Focus on Weakest</button>
-                </div>
-                <div class="condition-list" id="learn-condition-list">
-                    <!-- Conditions will be populated by JavaScript -->
-                </div>
-            </div>
-
-            <div id="progressive-view" style="display: none;">
-                <div class="progressive-card">
-                    <div class="card-header">
-                        <h2 id="card-condition-name">Condition Name</h2>
-                        <span id="card-specialty" class="specialty">Specialty</span>
-                        <div class="level-indicator">
-                            <div class="level-dot active" data-level="1"></div>
-                            <div class="level-dot" data-level="2"></div>
-                            <div class="level-dot" data-level="3"></div>
-                            <div class="level-dot" data-level="4"></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="disclosure-level symptoms active" data-level="1">
-                            <h4 class="level-title symptoms">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                </svg>
-                                Two Key Symptoms
-                            </h4>
-                            <div class="level-content">
-                                <ul id="symptoms-list"></ul>
-                            </div>
-                        </div>
-
-                        <div class="disclosure-level signs" data-level="2">
-                            <h4 class="level-title signs">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                                Two Characteristic Signs
-                            </h4>
-                            <div class="level-content">
-                                <ul id="signs-list"></ul>
-                            </div>
-                        </div>
-
-                        <div class="disclosure-level investigations" data-level="3">
-                            <h4 class="level-title investigations">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 3h6v4h-6zM9 21h6v-4h-6zM5 9H3v6h2zM21 9h-2v6h2zM12 3v4M12 17v4M3 12h4M17 12h4"/>
-                                </svg>
-                                Two Essential Investigations
-                            </h4>
-                            <div class="level-content">
-                                <ul id="investigations-list"></ul>
-                            </div>
-                        </div>
-
-                        <div class="disclosure-level answer" data-level="4">
-                            <h4 class="level-title answer">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 16v-4M12 8h.01"/>
-                                </svg>
-                                Diagnosis & Specialty
-                            </h4>
-                            <div class="level-content">
-                                <ul>
-                                    <li><strong>Diagnosis:</strong> <span id="answer-diagnosis"></span></li>
-                                    <li><strong>Specialty:</strong> <span id="answer-specialty"></span></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button class="btn btn-outline" id="btn-reveal-symptoms" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                </svg>
-                                Reveal Symptoms
-                            </button>
-                            <button class="btn btn-outline" id="btn-reveal-signs" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                                Reveal Signs
-                            </button>
-                            <button class="btn btn-outline" id="btn-reveal-investigations" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 3h6v4h-6zM9 21h6v-4h-6z"/>
-                                </svg>
-                                Reveal Investigations
-                            </button>
-                            <button class="btn btn-success" id="btn-reveal-answer" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 16v-4M12 8h.01"/>
-                                </svg>
-                                Show Answer
-                            </button>
-                        </div>
-                        <div class="keyboard-hint">
-                            Keyboard shortcuts: <kbd>1</kbd> Symptoms <kbd>2</kbd> Signs <kbd>3</kbd> Investigations <kbd>4</kbd> Answer <kbd>→</kbd> Next <kbd>←</kbd> Previous
-                        </div>
-                        <div class="action-buttons" style="margin-top: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
-                            <button class="btn btn-primary" id="btn-previous">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M15 18l-6-6 6-6"/>
-                                </svg>
-                                Previous
-                            </button>
-                            <button class="btn btn-primary" id="btn-next">
-                                Next
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 18l6-6-6-6"/>
-                                </svg>
-                            </button>
-                            <button class="btn btn-warning" id="btn-shuffle">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 3 21 3 21 8"/>
-                                    <line x1="4" y1="20" x2="21" y2="3"/>
-                                    <polyline points="21 16 21 21 16 21"/>
-                                    <line x1="15" y1="15" x2="21" y2="21"/>
-                                    <line x1="4" y1="4" x2="9" y2="9"/>
-                                </svg>
-                                Shuffle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quiz Section -->
-        <section id="quiz-section" class="section">
-            <div class="quiz-container">
-                <div class="quiz-card">
-                    <div class="quiz-progress" id="quiz-progress">
-                        <!-- Progress dots will be populated by JavaScript -->
-                    </div>
-                    <p class="quiz-question">Test your knowledge by identifying conditions based on their presentation</p>
-                    
-                    <div id="quiz-content">
-                        <div class="quiz-case" id="quiz-case">
-                            <h4>Case Presentation</h4>
-                            <p id="quiz-case-text">Loading case...</p>
-                        </div>
-                        
-                        <div class="quiz-options" id="quiz-options">
-                            <!-- Options will be populated by JavaScript -->
-                        </div>
-                        
-                        <div class="quiz-feedback" id="quiz-feedback"></div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" id="btn-submit-answer" style="display: none;">Submit Answer</button>
-                            <button class="btn btn-success" id="btn-next-question" style="display: none;">Next Question</button>
-                            <button class="btn btn-outline" id="btn-restart-quiz">Restart Quiz</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <div class="container">
         <!-- Progress Section -->
-        <section id="progress-section" class="section">
-            <div class="stats-panel">
-                <h3 style="margin-bottom: 1rem;">Your Learning Progress</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="stat-reviewed">0</div>
-                        <div class="stat-label">Conditions Reviewed</div>
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Your Progress</span>
+                <span class="progress-count"><span id="completed-count">0</span> of <span id="total-count">0</span> diagnoses</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="stat-total">0</div>
+                <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-completed">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="stat-remaining">0</div>
+                <div class="stat-label">Remaining</div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="search-input" placeholder="🔍 Search diagnoses... (e.g., 'Alzheimer', 'depression', 'stroke')">
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading diagnoses...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p>No diagnoses found matching your search.</p>
+        </div>
+
+        <!-- Diagnosis Card -->
+        <div class="diagnosis-card" id="diagnosis-card" style="display: none;">
+            <div class="diagnosis-header">
+                <span class="section-badge" id="section-badge">Section</span>
+                <h2 class="diagnosis-title" id="diagnosis-title">Diagnosis Name</h2>
+                <p class="diagnosis-counter" id="diagnosis-counter">1 of 100</p>
+            </div>
+
+            <!-- Stage 1: Symptoms -->
+            <div class="disclosure-section" id="stage-symptoms">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h3 class="section-title">Key Symptoms</h3>
+                </div>
+                <ul class="items-list" id="symptoms-list">
+                    <li>Symptom 1</li>
+                    <li>Symptom 2</li>
+                </ul>
+            </div>
+
+            <!-- Stage 2: Signs -->
+            <div class="disclosure-section" id="stage-signs">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h3 class="section-title">Characteristic Signs</h3>
+                </div>
+                <ul class="items-list" id="signs-list">
+                    <li>Sign 1</li>
+                    <li>Sign 2</li>
+                </ul>
+            </div>
+
+            <!-- Stage 3: Investigations -->
+            <div class="disclosure-section" id="stage-investigations">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h3 class="section-title">Essential Investigations</h3>
+                </div>
+                <ul class="items-list" id="investigations-list">
+                    <li>Test 1</li>
+                    <li>Test 2</li>
+                </ul>
+            </div>
+
+            <!-- Stage 4: Learning Points & Clinical Hints -->
+            <div class="final-section" id="stage-summary">
+                <div class="final-grid">
+                    <div class="final-card learning-card">
+                        <h4 class="final-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                            📚 Key Learning Points
+                        </h4>
+                        <ul class="final-items" id="learning-points-list">
+                            <li>Learning point 1</li>
+                            <li>Learning point 2</li>
+                            <li>Learning point 3</li>
+                        </ul>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="stat-mastered">0</div>
-                        <div class="stat-label">Mastered</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="stat-quiz-correct">0</div>
-                        <div class="stat-label">Quiz Correct</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="stat-quiz-total">0</div>
-                        <div class="stat-label">Quiz Attempts</div>
+                    <div class="final-card hint-card">
+                        <h4 class="final-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            💡 Clinical Hints
+                        </h4>
+                        <ul class="final-items" id="clinical-hints-list">
+                            <li>Clinical hint 1</li>
+                            <li>Clinical hint 2</li>
+                            <li>Clinical hint 3</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="progress-panel">
-                <h3 style="margin-bottom: 1rem;">Category Progress</h3>
-                <div id="category-progress">
-                    <!-- Category progress bars will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-    </main>
+            <!-- Reveal Button -->
+            <button class="reveal-btn symptoms" id="reveal-btn" onclick="revealNext()">
+                Reveal Key Symptoms →
+            </button>
 
-    <button class="help-btn" id="help-btn" title="Help">?</button>
-
-    <!-- Help Modal -->
-    <div class="modal-overlay" id="help-modal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3>How to Use This Learning Tool</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h4>Progressive Disclosure Method</h4>
-                <p>This tool uses the "Rule of Two" to help you learn psychiatric diagnosis systematically:</p>
-                <ol>
-                    <li><strong>Start with symptoms:</strong> Reveal the two key symptoms for each condition</li>
-                    <li><strong>Then signs:</strong> Reveal the two characteristic physical examination findings</li>
-                    <li><strong>Then investigations:</strong> Reveal the two essential diagnostic tests</li>
-                    <li><strong>Finally, the answer:</strong> Confirm the diagnosis and specialty</li>
-                </ol>
-                
-                <h4 style="margin-top: 1rem;">Navigation</h4>
-                <ul>
-                    <li><strong>Browse:</strong> View all conditions organized by category</li>
-                    <li><strong>Progressive Learning:</strong> Learn condition by condition with progressive disclosure</li>
-                    <li><strong>Quiz Mode:</strong> Test your knowledge with random cases</li>
-                    <li><strong>My Progress:</strong> Track your learning progress</li>
-                </ul>
-
-                <h4 style="margin-top: 1rem;">Keyboard Shortcuts</h4>
-                <ul>
-                    <li><kbd>1</kbd> - Reveal symptoms</li>
-                    <li><kbd>2</kbd> - Reveal signs</li>
-                    <li><kbd>3</kbd> - Reveal investigations</li>
-                    <li><kbd>4</kbd> - Show answer</li>
-                    <li><kbd>→</kbd> - Next condition</li>
-                    <li><kbd>←</kbd> - Previous condition</li>
-                </ul>
+            <!-- Navigation -->
+            <div class="navigation">
+                <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">← Previous</button>
+                <button class="nav-btn primary" id="next-btn" onclick="navigate(1)">Next →</button>
             </div>
         </div>
     </div>
 
+    <!-- Toast -->
+    <div class="toast" id="toast">Diagnosis completed!</div>
+
     <script>
         // Global state
-        let diagnosticData = null;
-        let currentConditionIndex = 0;
-        let currentConditions = [];
-        let currentLevel = 0;
-        let quizState = {
-            currentQuestion: 0,
-            score: 0,
-            questions: [],
-            answered: false
-        };
-        let userProgress = {
-            reviewed: new Set(),
-            mastered: new Set(),
-            quizAttempts: 0,
-            quizCorrect: 0,
-            categoryProgress: {}
-        };
+        let allDiagnoses = [];
+        let filteredDiagnoses = [];
+        let currentIndex = 0;
+        let currentStage = 0; // 0=start, 1=symptoms, 2=signs, 3=investigations, 4=summary
+        let completedDiagnoses = new Set();
+
+        // DOM Elements
+        const loadingEl = document.getElementById('loading');
+        const emptyStateEl = document.getElementById('empty-state');
+        const diagnosisCardEl = document.getElementById('diagnosis-card');
+        const searchInput = document.getElementById('search-input');
+        const revealBtn = document.getElementById('reveal-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const toastEl = document.getElementById('toast');
 
         // Initialize
         document.addEventListener('DOMContentLoaded', async () => {
-            await loadData();
-            initializeUI();
             loadProgress();
-            updateStats();
+            await loadDiagnoses();
         });
 
-        // Load JSON data
-        async function loadData() {
+        // Load diagnoses from JSON
+        async function loadDiagnoses() {
             try {
-                const response = await fetch('psychiatric_diagnosis_data.json');
-                diagnosticData = await response.json();
-                initializeCategories();
-                initializeSpecialtyFilter();
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
-        }
-
-        // Initialize UI components
-        function initializeUI() {
-            // Navigation tabs
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.addEventListener('click', () => switchSection(tab.dataset.section));
-            });
-
-            // Search
-            document.getElementById('search-input').addEventListener('input', handleSearch);
-
-            // Mode buttons
-            document.querySelectorAll('.mode-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    shuffleConditions();
-                });
-            });
-
-            // Progressive disclosure buttons
-            document.getElementById('btn-reveal-symptoms').addEventListener('click', () => revealLevel(1));
-            document.getElementById('btn-reveal-signs').addEventListener('click', () => revealLevel(2));
-            document.getElementById('btn-reveal-investigations').addEventListener('click', () => revealLevel(3));
-            document.getElementById('btn-reveal-answer').addEventListener('click', () => revealLevel(4));
-            document.getElementById('btn-next').addEventListener('click', nextCondition);
-            document.getElementById('btn-previous').addEventListener('click', previousCondition);
-            document.getElementById('btn-shuffle').addEventListener('click', shuffleConditions);
-
-            // Quiz buttons
-            document.getElementById('btn-restart-quiz').addEventListener('click', startQuiz);
-
-            // Back button
-            document.getElementById('back-to-browse').addEventListener('click', () => {
-                document.getElementById('learn-category-view').style.display = 'block';
-                document.getElementById('progressive-view').style.display = 'none';
-                document.getElementById('back-to-browse').style.display = 'none';
-            });
-
-            // Help modal
-            document.getElementById('help-btn').addEventListener('click', () => {
-                document.getElementById('help-modal').classList.add('show');
-            });
-            document.getElementById('modal-close').addEventListener('click', () => {
-                document.getElementById('help-modal').classList.remove('show');
-            });
-            document.getElementById('help-modal').addEventListener('click', (e) => {
-                if (e.target === e.currentTarget) {
-                    document.getElementById('help-modal').classList.remove('show');
-                }
-            });
-
-            // Keyboard shortcuts
-            document.addEventListener('keydown', handleKeyboard);
-        }
-
-        // Initialize category cards
-        function initializeCategories() {
-            const grid = document.getElementById('category-grid');
-            grid.innerHTML = diagnosticData.categories.map(category => `
-                <div class="category-card" data-category="${category.id}">
-                    <h3>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            ${getCategoryIcon(category.icon)}
-                        </svg>
-                        ${category.name}
-                    </h3>
-                    <p>Learn the Rule of Two for each condition</p>
-                    <div class="condition-count">${category.conditions.length} conditions</div>
-                </div>
-            `).join('');
-
-            // Add click handlers
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.addEventListener('click', () => selectCategory(card.dataset.category));
-            });
-        }
-
-        // Initialize specialty filter
-        function initializeSpecialtyFilter() {
-            const specialties = new Set();
-            diagnosticData.categories.forEach(cat => {
-                cat.conditions.forEach(cond => specialties.add(cond.specialty));
-            });
-
-            const filter = document.getElementById('specialty-filter');
-            Array.from(specialties).sort().forEach(spec => {
-                filter.innerHTML += `<button class="specialty-btn" data-specialty="${spec}">${spec}</button>`;
-            });
-
-            filter.querySelectorAll('.specialty-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filter.querySelectorAll('.specialty-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    handleSearch();
-                });
-            });
-        }
-
-        // Get category icon SVG
-        function getCategoryIcon(iconName) {
-            const icons = {
-                'brain': '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
-                'heart-pulse': '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-                'activity': '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-                'virus': '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/>',
-                'shield': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-                'flask-conical': '<path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.31a6 6 0 1 1-4 0"/>',
-                'brain-circuit': '<circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="3"/>',
-                'stethoscope': '<path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>',
-                'dna': '<path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M2 9c6.667-6 13.333 0 20-6"/><path d="M2 21c6.667-6 13.333 0 20-6"/>',
-                'moon': '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
-                'heart': '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
-                'lungs': '<path d="m9 9 8 8"/><path d="m15 9-6 6"/><path d="M12 6a2 2 0 0 0-2 2v7"/><circle cx="12" cy="12" r="9"/>',
-                'droplet': '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/>',
-                'bone': '<path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a.5.5 0 0 1-.5.5 2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/>',
-                'stomach': '<path d="M3 14a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4"/>',
-                'kidney': '<path d="M12 2v8"/><path d="M12 18v4"/><path d="M8 6h8"/><circle cx="12" cy="8" r="4"/><circle cx="12" cy="16" r="4"/>'
-            };
-            return icons[iconName] || icons['brain'];
-        }
-
-        // Switch section
-        function switchSection(sectionId) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            
-            document.getElementById(`${sectionId}-section`).classList.add('active');
-            document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
-
-            if (sectionId === 'quiz') {
-                startQuiz();
-            } else if (sectionId === 'progress') {
-                updateProgressDisplay();
-            }
-        }
-
-        // Handle search
-        function handleSearch() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const activeSpecialty = document.querySelector('.specialty-btn.active').dataset.specialty;
-            
-            document.querySelectorAll('.category-card').forEach(card => {
-                const category = diagnosticData.categories.find(c => c.id === card.dataset.category);
-                let visible = true;
-                
-                if (query) {
-                    visible = category.name.toLowerCase().includes(query) ||
-                              category.conditions.some(c => 
-                                  c.name.toLowerCase().includes(query) ||
-                                  c.specialty.toLowerCase().includes(query) ||
-                                  c.symptoms.some(s => s.toLowerCase().includes(query))
-                              );
+                const response = await fetch('all_diagnoses.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load diagnoses file');
                 }
                 
-                if (activeSpecialty !== 'all' && visible) {
-                    visible = category.conditions.some(c => c.specialty === activeSpecialty);
-                }
+                const data = await response.json();
                 
-                card.style.display = visible ? 'block' : 'none';
-            });
-        }
-
-        // Select category
-        function selectCategory(categoryId) {
-            const category = diagnosticData.categories.find(c => c.id === categoryId);
-            currentConditions = [...category.conditions];
-            currentConditionIndex = 0;
-            
-            // Populate condition list
-            const list = document.getElementById('learn-condition-list');
-            list.innerHTML = currentConditions.map((cond, idx) => `
-                <div class="condition-item" data-index="${idx}">
-                    <span class="name">${cond.name}</span>
-                    <span class="specialty">${cond.specialty}</span>
-                </div>
-            `).join('');
-            
-            list.querySelectorAll('.condition-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    currentConditionIndex = parseInt(item.dataset.index);
-                    showProgressiveView();
-                });
-            });
-            
-            document.getElementById('learn-category-view').style.display = 'block';
-            document.getElementById('progressive-view').style.display = 'none';
-            document.getElementById('back-to-browse').style.display = 'none';
-        }
-
-        // Show progressive view
-        function showProgressiveView() {
-            const condition = currentConditions[currentConditionIndex];
-            
-            document.getElementById('learn-category-view').style.display = 'none';
-            document.getElementById('progressive-view').style.display = 'block';
-            document.getElementById('back-to-browse').style.display = 'inline-flex';
-            
-            // Update card
-            document.getElementById('card-condition-name').textContent = condition.name;
-            document.getElementById('card-specialty').textContent = condition.specialty;
-            
-            // Populate content
-            document.getElementById('symptoms-list').innerHTML = condition.symptoms.map(s => `<li>${s}</li>`).join('');
-            document.getElementById('signs-list').innerHTML = condition.signs.map(s => `<li>${s}</li>`).join('');
-            document.getElementById('investigations-list').innerHTML = condition.investigations.map(i => `<li>${i}</li>`).join('');
-            document.getElementById('answer-diagnosis').textContent = condition.name;
-            document.getElementById('answer-specialty').textContent = condition.specialty;
-            
-            // Reset to level 0
-            resetLevels();
-            
-            // Mark as reviewed
-            userProgress.reviewed.add(condition.id);
-            saveProgress();
-            updateStats();
-        }
-
-        // Reveal level
-        function revealLevel(level) {
-            currentLevel = level;
-            
-            // Update level dots
-            document.querySelectorAll('.level-dot').forEach((dot, idx) => {
-                if (idx < level) {
-                    dot.classList.add('completed');
-                    dot.classList.add('active');
+                // Handle both array and object formats
+                if (Array.isArray(data)) {
+                    allDiagnoses = data;
+                } else if (data.diagnoses && Array.isArray(data.diagnoses)) {
+                    allDiagnoses = data.diagnoses;
                 } else {
-                    dot.classList.remove('completed', 'active');
+                    throw new Error('Invalid JSON format');
                 }
-            });
-            
-            // Show content
-            document.querySelectorAll('.disclosure-level').forEach((el, idx) => {
-                el.classList.toggle('active', idx < level);
-            });
-            
-            // Update button states
-            document.getElementById('btn-reveal-symptoms').disabled = level >= 1;
-            document.getElementById('btn-reveal-signs').disabled = level >= 2;
-            document.getElementById('btn-reveal-investigations').disabled = level >= 3;
-            document.getElementById('btn-reveal-answer').disabled = level >= 4;
-            
-            // Mark as mastered if all levels revealed
-            if (level === 4) {
-                const condition = currentConditions[currentConditionIndex];
-                userProgress.mastered.add(condition.id);
-                saveProgress();
-                updateStats();
+
+                // Update stats
+                document.getElementById('stat-total').textContent = allDiagnoses.length;
+                updateRemaining();
+                
+                // Setup filtered list
+                filteredDiagnoses = [...allDiagnoses];
+                document.getElementById('total-count').textContent = allDiagnoses.length;
+
+                // Hide loading, show card
+                loadingEl.style.display = 'none';
+                diagnosisCardEl.style.display = 'block';
+
+                // Render first diagnosis
+                renderDiagnosis();
+
+            } catch (error) {
+                console.error('Error loading diagnoses:', error);
+                loadingEl.innerHTML = `
+                    <div style="color: #dc2626;">
+                        <p style="margin-bottom: 10px;">⚠️ Error loading diagnoses</p>
+                        <p style="font-size: 14px;">Please ensure <code>all_diagnoses.json</code> is in the same directory.</p>
+                    </div>
+                `;
             }
         }
 
-        // Reset levels
-        function resetLevels() {
-            currentLevel = 0;
-            document.querySelectorAll('.level-dot').forEach(dot => {
-                dot.classList.remove('completed', 'active');
-            });
-            document.querySelectorAll('.disclosure-level').forEach((el, idx) => {
-                el.classList.toggle('active', idx === 0);
-            });
-            document.getElementById('btn-reveal-symptoms').disabled = false;
-            document.getElementById('btn-reveal-signs').disabled = true;
-            document.getElementById('btn-reveal-investigations').disabled = true;
-            document.getElementById('btn-reveal-answer').disabled = true;
-        }
-
-        // Navigation
-        function nextCondition() {
-            currentConditionIndex = (currentConditionIndex + 1) % currentConditions.length;
-            showProgressiveView();
-        }
-
-        function previousCondition() {
-            currentConditionIndex = (currentConditionIndex - 1 + currentConditions.length) % currentConditions.length;
-            showProgressiveView();
-        }
-
-        function shuffleConditions() {
-            for (let i = currentConditions.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [currentConditions[i], currentConditions[j]] = [currentConditions[j], currentConditions[i]];
+        // Render current diagnosis
+        function renderDiagnosis() {
+            if (filteredDiagnoses.length === 0) {
+                diagnosisCardEl.style.display = 'none';
+                emptyStateEl.style.display = 'block';
+                return;
             }
-            currentConditionIndex = 0;
-            
-            // Update list
-            const list = document.getElementById('learn-condition-list');
-            list.innerHTML = currentConditions.map((cond, idx) => `
-                <div class="condition-item" data-index="${idx}">
-                    <span class="name">${cond.name}</span>
-                    <span class="specialty">${cond.specialty}</span>
-                </div>
-            `).join('');
-            
-            list.querySelectorAll('.condition-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    currentConditionIndex = parseInt(item.dataset.index);
-                    showProgressiveView();
-                });
-            });
-        }
 
-        // Keyboard handler
-        function handleKeyboard(e) {
-            if (document.getElementById('progressive-view').style.display === 'none') return;
+            diagnosisCardEl.style.display = 'block';
+            emptyStateEl.style.display = 'none';
+
+            const diagnosis = filteredDiagnoses[currentIndex];
             
-            switch(e.key) {
-                case '1': revealLevel(Math.max(1, currentLevel)); break;
-                case '2': revealLevel(Math.max(2, currentLevel)); break;
-                case '3': revealLevel(Math.max(3, currentLevel)); break;
-                case '4': revealLevel(4); break;
-                case 'ArrowRight': nextCondition(); break;
-                case 'ArrowLeft': previousCondition(); break;
+            // Reset stage
+            currentStage = 0;
+
+            // Update header
+            document.getElementById('section-badge').textContent = diagnosis.section || 'General';
+            document.getElementById('diagnosis-title').textContent = diagnosis.diagnosis;
+            document.getElementById('diagnosis-counter').textContent = `${currentIndex + 1} of ${filteredDiagnoses.length}`;
+
+            // Update symptoms
+            const symptomsList = document.getElementById('symptoms-list');
+            symptomsList.innerHTML = (diagnosis.two_key_symptoms || [])
+                .map(s => `<li>${s}</li>`).join('');
+
+            // Update signs
+            const signsList = document.getElementById('signs-list');
+            signsList.innerHTML = (diagnosis.two_characteristic_signs || [])
+                .map(s => `<li>${s}</li>`).join('');
+
+            // Update investigations
+            const investigationsList = document.getElementById('investigations-list');
+            investigationsList.innerHTML = (diagnosis.two_essential_investigations || [])
+                .map(i => `<li>${i}</li>`).join('');
+
+            // Update learning points
+            const learningList = document.getElementById('learning-points-list');
+            learningList.innerHTML = (diagnosis.three_key_learning_points || [])
+                .map(p => `<li>${p}</li>`).join('');
+
+            // Update clinical hints
+            const hintsList = document.getElementById('clinical-hints-list');
+            hintsList.innerHTML = (diagnosis.three_clinical_hints || [])
+                .map(h => `<li>${h}</li>`).join('');
+
+            // Reset visibility
+            document.getElementById('stage-symptoms').classList.remove('visible');
+            document.getElementById('stage-signs').classList.remove('visible');
+            document.getElementById('stage-investigations').classList.remove('visible');
+            document.getElementById('stage-summary').classList.remove('visible');
+
+            // Reset button
+            revealBtn.textContent = 'Reveal Key Symptoms →';
+            revealBtn.className = 'reveal-btn symptoms';
+            revealBtn.disabled = false;
+
+            // Update navigation
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === filteredDiagnoses.length - 1;
+
+            // Check if already completed
+            const isCompleted = completedDiagnoses.has(diagnosis.diagnosis);
+            if (isCompleted) {
+                // Auto-reveal everything for completed diagnoses
+                revealNext();
+                revealNext()
+                revealNext()
+                revealNext()
             }
         }
 
-        // Quiz functionality
-        function startQuiz() {
-            quizState = {
-                currentQuestion: 0,
-                score: 0,
-                questions: [],
-                answered: false
-            };
-            
-            // Generate 10 random questions
-            const allConditions = diagnosticData.categories.flatMap(c => c.conditions);
-            const shuffled = [...allConditions].sort(() => Math.random() - 0.5);
-            
-            quizState.questions = shuffled.slice(0, 10).map(condition => {
-                // Create case presentation from symptoms
-                const caseText = `A patient presents with ${condition.symptoms[0].toLowerCase()} and ${condition.symptoms[1].toLowerCase()}.`;
+        // Reveal next stage
+        function revealNext() {
+            const stages = [
+                { el: document.getElementById('stage-symptoms'), btn: 'Reveal Characteristic Signs →', btnClass: 'signs' },
+                { el: document.getElementById('stage-signs'), btn: 'Reveal Essential Investigations →', btnClass: 'tests' },
+                { el: document.getElementById('stage-investigations'), btn: 'Reveal Learning Points & Hints →', btnClass: 'summary' },
+                { el: document.getElementById('stage-summary'), btn: '✓ Completed', btnClass: 'completed', completed: true }
+            ];
+
+            if (currentStage < stages.length) {
+                stages[currentStage].el.classList.add('visible');
                 
-                // Get 3 wrong answers
-                const wrongAnswers = allConditions
-                    .filter(c => c.id !== condition.id)
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, 3)
-                    .map(c => c.name);
-                
-                const options = [condition.name, ...wrongAnswers].sort(() => Math.random() - 0.5);
-                
-                return {
-                    caseText,
-                    condition,
-                    options,
-                    correctAnswer: condition.name
-                };
-            });
-            
-            renderQuiz();
+                if (stages[currentStage].completed) {
+                    revealBtn.textContent = stages[currentStage].btn;
+                    revealBtn.className = `reveal-btn ${stages[currentStage].btnClass} completed`;
+                    revealBtn.disabled = true;
+
+                    // Mark as completed
+                    const diagnosis = filteredDiagnoses[currentIndex];
+                    if (!completedDiagnoses.has(diagnosis.diagnosis)) {
+                        completedDiagnoses.add(diagnosis.diagnosis);
+                        saveProgress();
+                        updateProgress();
+                        showToast('Diagnosis completed! 🎉');
+                    }
+                } else {
+                    revealBtn.textContent = stages[currentStage].btn;
+                    revealBtn.className = `reveal-btn ${stages[currentStage].btnClass}`;
+                }
+
+                currentStage++;
+            }
         }
 
-        function renderQuiz() {
-            const q = quizState.questions[quizState.currentQuestion];
-            
-            // Update progress
-            document.getElementById('quiz-progress').innerHTML = quizState.questions.map((_, idx) => {
-                let className = 'quiz-progress-dot';
-                if (idx < quizState.currentQuestion) {
-                    className += quizState.questions[idx].answeredCorrectly ? ' correct' : ' incorrect';
-                }
-                return `<div class="${className}"></div>`;
-            }).join('');
-            
-            // Update case
-            document.getElementById('quiz-case-text').textContent = q.caseText;
-            
-            // Update options
-            document.getElementById('quiz-options').innerHTML = q.options.map(opt => `
-                <div class="quiz-option" data-answer="${opt}">${opt}</div>
-            `).join('');
-            
-            // Add click handlers
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                opt.addEventListener('click', () => handleQuizAnswer(opt.dataset.answer));
-            });
-            
-            // Reset buttons
-            document.getElementById('btn-submit-answer').style.display = 'none';
-            document.getElementById('btn-next-question').style.display = 'none';
-            document.getElementById('quiz-feedback').classList.remove('show');
-            
-            quizState.answered = false;
+        // Navigate between diagnoses
+        function navigate(direction) {
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < filteredDiagnoses.length) {
+                currentIndex = newIndex;
+                renderDiagnosis();
+            }
         }
 
-        function handleQuizAnswer(answer) {
-            if (quizState.answered) return;
-            quizState.answered = true;
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
             
-            const q = quizState.questions[quizState.currentQuestion];
-            const correct = answer === q.correctAnswer;
-            
-            q.answeredCorrectly = correct;
-            
-            // Show feedback
-            const feedback = document.getElementById('quiz-feedback');
-            feedback.textContent = correct 
-                ? 'Correct! Well done.' 
-                : `Incorrect. The correct answer is ${q.correctAnswer}.`;
-            feedback.className = `quiz-feedback show ${correct ? 'correct' : 'incorrect'}`;
-            
-            // Highlight correct/incorrect
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                if (opt.dataset.answer === q.correctAnswer) {
-                    opt.classList.add('correct');
-                } else if (opt.dataset.answer === answer && !correct) {
-                    opt.classList.add('incorrect');
-                }
-                opt.style.pointerEvents = 'none';
-            });
-            
-            // Update score
-            if (correct) quizState.score++;
-            quizState.quizAttempts++;
-            quizState.quizCorrect += correct ? 1 : 0;
-            saveProgress();
-            updateStats();
-            
-            // Show next button
-            document.getElementById('btn-next-question').style.display = 'inline-flex';
-            
-            if (quizState.currentQuestion < quizState.questions.length - 1) {
-                document.getElementById('btn-next-question').onclick = () => {
-                    quizState.currentQuestion++;
-                    renderQuiz();
-                };
+            if (!query) {
+                filteredDiagnoses = [...allDiagnoses];
             } else {
-                document.getElementById('btn-next-question').innerHTML = 'Finish Quiz <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
-                document.getElementById('btn-next-question').onclick = finishQuiz;
+                filteredDiagnoses = allDiagnoses.filter(d => {
+                    const diagnosis = d.diagnosis?.toLowerCase() || '';
+                    const section = d.section?.toLowerCase() || '';
+                    const symptoms = (d.two_key_symptoms || []).join(' ').toLowerCase();
+                    const signs = (d.two_characteristic_signs || []).join(' ').toLowerCase();
+                    
+                    return diagnosis.includes(query) || 
+                           section.includes(query) ||
+                           symptoms.includes(query) ||
+                           signs.includes(query);
+                });
             }
-        }
 
-        function finishQuiz() {
-            const percentage = Math.round((quizState.score / quizState.questions.length) * 100);
-            document.getElementById('quiz-content').innerHTML = `
-                <div class="quiz-case">
-                    <h4>Quiz Complete!</h4>
-                    <p>You scored ${quizState.score} out of ${quizState.questions.length} (${percentage}%)</p>
-                </div>
-                <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="startQuiz()">Try Again</button>
-                    <button class="btn btn-outline" onclick="switchSection('browse')">Browse Conditions</button>
-                </div>
-            `;
-        }
+            currentIndex = 0;
+            renderDiagnosis();
+            document.getElementById('total-count').textContent = filteredDiagnoses.length;
+        });
 
-        // Progress tracking
+        // Progress management
         function loadProgress() {
             try {
-                const saved = localStorage.getItem('psychiatricLearningProgress');
+                const saved = localStorage.getItem('neuropsych_progress');
                 if (saved) {
-                    const data = JSON.parse(saved);
-                    userProgress = {
-                        reviewed: new Set(data.reviewed || []),
-                        mastered: new Set(data.mastered || []),
-                        quizAttempts: data.quizAttempts || 0,
-                        quizCorrect: data.quizCorrect || 0,
-                        categoryProgress: data.categoryProgress || {}
-                    };
+                    completedDiagnoses = new Set(JSON.parse(saved));
+                    updateProgress();
                 }
             } catch (e) {
                 console.error('Error loading progress:', e);
@@ -1630,45 +918,57 @@
 
         function saveProgress() {
             try {
-                localStorage.setItem('psychiatricLearningProgress', JSON.stringify({
-                    reviewed: Array.from(userProgress.reviewed),
-                    mastered: Array.from(userProgress.mastered),
-                    quizAttempts: userProgress.quizAttempts,
-                    quizCorrect: userProgress.quizCorrect,
-                    categoryProgress: userProgress.categoryProgress
-                }));
+                localStorage.setItem('neuropsych_progress', JSON.stringify([...completedDiagnoses]));
             } catch (e) {
                 console.error('Error saving progress:', e);
             }
         }
 
-        function updateStats() {
-            document.getElementById('stat-reviewed').textContent = userProgress.reviewed.size;
-            document.getElementById('stat-mastered').textContent = userProgress.mastered.size;
-            document.getElementById('stat-quiz-correct').textContent = userProgress.quizCorrect;
-            document.getElementById('stat-quiz-total').textContent = userProgress.quizAttempts;
+        function updateProgress() {
+            document.getElementById('completed-count').textContent = completedDiagnoses.size;
+            document.getElementById('stat-completed').textContent = completedDiagnoses.size;
+            updateRemaining();
+
+            const percentage = allDiagnoses.length > 0 
+                ? (completedDiagnoses.size / allDiagnoses.length) * 100 
+                : 0;
+            document.getElementById('progress-fill').style.width = `${percentage}%`;
         }
 
-        function updateProgressDisplay() {
-            const container = document.getElementById('category-progress');
-            container.innerHTML = diagnosticData.categories.map(cat => {
-                const reviewed = cat.conditions.filter(c => userProgress.reviewed.has(c.id)).length;
-                const mastered = cat.conditions.filter(c => userProgress.mastered.has(c.id)).length;
-                const percentage = Math.round((reviewed / cat.conditions.length) * 100);
-                
-                return `
-                    <div style="margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                            <span>${cat.name}</span>
-                            <span>${reviewed}/${cat.conditions.length} (${mastered} mastered)</span>
-                        </div>
-                        <div style="background: #eee; border-radius: 50px; height: 8px; overflow: hidden;">
-                            <div style="background: var(--secondary); height: 100%; width: ${percentage}%; transition: width 0.3s ease;"></div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+        function updateRemaining() {
+            const remaining = allDiagnoses.length - completedDiagnoses.size;
+            document.getElementById('stat-remaining').textContent = remaining;
         }
+
+        // Toast notification
+        function showToast(message) {
+            toastEl.textContent = message;
+            toastEl.classList.add('visible');
+            setTimeout(() => {
+                toastEl.classList.remove('visible');
+            }, 3000);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                    navigate(1);
+                    break;
+                case 'ArrowLeft':
+                    navigate(-1);
+                    break;
+                case ' ':
+                case 'Enter':
+                    if (!revealBtn.disabled) {
+                        e.preventDefault();
+                        revealNext();
+                    }
+                    break;
+            }
+        });
     </script>
 </body>
 </html>
